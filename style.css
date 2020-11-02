@@ -1,0 +1,151 @@
+* {
+  margin: 0px;
+  border: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.principal {
+  background-image: url(./images/Guild.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+/*Seleciona qual imagem principal irá aparecer, através do display none/flex*/
+.oneImage {
+  margin-top: 7%;
+  width: 95%;
+  height: 600px;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+/*Seleciona qual quadro de escolhas irá aparecer, através do display none/flex*/
+.choice1 {
+  margin: 30px;
+  width: 95%;
+  justify-content: space-evenly;
+}
+#choiceBattle {
+  margin: 30px;
+  width: 95%;
+  justify-content: space-evenly;
+}
+.beginBattle {
+  margin: 30px;
+  width: 95%;
+  justify-content: space-evenly;
+}
+.classButtonStart {
+  background-color: #0a1017;
+  opacity: 0.5;
+  border: none;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+  height: 80px;
+  width: 120%;
+}
+/*Configuração do botão de escolha*/
+.classButton {
+  background-color: #0a1017;
+  opacity: 0.5;
+  border: none;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+  height: 100px;
+  width: 300px;
+}
+/*configura 2 imagens*/
+.twoImages {
+  margin: 30px;
+  width: 95%;
+  height: 720px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.twoImages img {
+  height: 550px;
+  width: auto;
+}
+.twoImages ul {
+  text-align: center;
+  list-style: none;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 20px;
+}
+.leftItem {
+  flex-direction: column;
+}
+.leftItem ul {
+    flex-direction: column;
+    background-color: #0a1017;
+    opacity: 0.5;
+    color: white;
+    height: auto;
+  }
+  
+.rightItem {
+  flex-direction: column;
+}
+.rightItem ul {
+  flex-direction: column;
+  background-color: #0a1017;
+  opacity: 0.5;
+  color: white;
+  height: auto;
+}
+.actionsReturn {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+.afterAction {
+  background-color: #0a1017;
+  opacity: 0.5;
+  width: 100%;
+  height: auto;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+/*configura inimingos*/
+.enemy {
+  flex-direction: column;
+}
+.enemy ul {
+  flex-direction: column;
+  background-color: #0a1017;
+  opacity: 0.5;
+  color: white;
+  height: auto;
+}
+/*configura o game over*/
+.gameOver {
+  position: absolute;
+  font-size: 12rem;
+  color: red;
+  margin-top: 20%;
+}
+.tryAgain{
+  align-items: center;
+  color: red;
+}
+.tryAgain a{
+text-decoration: none;
+color: red;
+position: absolute;
+bottom: 20%;}
+/*ativa e desativa o bloco*/
+.ative {
+  display: flex;
+}
+.desatived {
+  display: none;
+}
