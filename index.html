@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <title>King of Monsters</title>
+    <title>No Escape!</title>
   </head>
   <body id="principal" class="principal">
     <!--Telas-->
@@ -19,27 +19,26 @@
         <img src="./images/good-lok.gif" alt="" />
         <ul>
           <li id="goodChoice">O <i>classe</i> é um ótima escolha!</li>
-          <li>Boa sorte em sua jornada!</li>
+          <li>Caso a Mana/Energia fique menor do que seu ataque básico,</li>
+          <li>você irá morrer porque não conseguirá atacar mais...</li>
+          <li>Agora, boa sorte em sua jornada!</li>
+          <li>E lembre-se...nunca desista!</li>
         </ul>
       </div>
       <div id="rightItem" class="rightItem ative">
-        <img
-          id="Barbariam"
-          class="desatived"
-          src="./images/barbaro-1.jpg"
-          alt=""
-        />
-        <ul id="BarbariamSkil"></ul>
-        <img id="magician" class="desatived" src="./images/maga.jpg" alt="" />
-        <ul id="magicianSkil"></ul>
+        <img id="playerImage" src="" alt="" />
+        <ul id="playerSkil"></ul>
       </div>
       <div id="monster" class="desatived enemy">
         <img id="monsterImage" src="" alt="" />
-        <ul id="monsterStatus" class="desatived"></ul>
+        <ul id="monsterStatus"></ul>
       </div>
     </div>
     <div id="congratulation" class="oneImage desatived">
       <img src="./images/congratulations.png" alt="" />
+    </div>
+    <div id="gameEnd" class="oneImage desatived">
+      <img src="./images/gameWin.png" alt="" />
     </div>
     <!--Botões-->
     <div id="choice1" class="choice1 ative">
@@ -57,20 +56,48 @@
     <div class="actionsReturn" class="desatived">
       <h1 id="afterAction" class="afterAction desatived"></h1>
       <div id="choiceBattle" class="choiceBattle desatived">
-        <button class="classButton" id="attack">Atacar</button>
+        <div id="skilButtons" class="ative">
+          <button class="classButton desatived defenseButton" id="attack">
+            Defender</button
+          ><!--alterar texto para 'Defender' após botões configurados-->
+          <button class="classButton skilButton desatived" id="skil1">
+            Habilidade1
+          </button>
+          <button class="classButton skilButton desatived" id="skil2">
+            Habilidade2
+          </button>
+          <button class="classButton skilButton desatived" id="skil3">
+            Habilidade3
+          </button>
+          <button class="classButton skilButton desatived" id="skil4">
+            Habilidade4
+          </button>
+          <button class="classButton skilButton desatived" id="skil5">
+            Habilidade5
+          </button>
+        </div>
         <button class="classButton" id="escape">Fugir</button>
       </div>
     </div>
     <div id="continueBattle" class="desatived beginBattle">
-      <button id="continueBattleGame1" class="classButton desatived">
-        Continuar a aventura
+      <button id="newDefensive" class="classButton desatived">
+        Nova Armadura
+      </button>
+      <button id="newOfensive" class="classButton desatived">
+        Aumento do Poder Ofensivo
+      </button>
+      <button id="newSkill" class="classButton desatived">
+        Nova Habilidade
       </button>
     </div>
     <!--Tela de game over-->
     <h1 id="gameOver" class="gameOver desatived">GAME OVER</h1>
     <div id="tryAgain" class="tryAgain desatived beginBattle">
       <a href="index.html">
-        <button id="tryAgain" class="tryAgain classButton ative">
+        <button
+          id="tryAgainButton"
+          class="tryAgain classButton desatived tryAgainButton"
+        >
           Tentar Novamente
         </button>
       </a>

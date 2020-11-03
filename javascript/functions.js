@@ -13,9 +13,8 @@ function alterDisplayInitical(
   ativeDesatived(aparece2);
   ativeDesatived(esconde1);
   ativeDesatived(esconde2);
-  ativeDesatived(apareceplayer);
 }
-function returnStatus(personTag, personStatus) {
+function returnStatus(personTag, personStatus, skilCount) {
   personTag.innerHTML = "";
   personStatus.Name
     ? (personTag.innerHTML += `<li>Nome: ${personStatus.Name}</li>`)
@@ -23,23 +22,41 @@ function returnStatus(personTag, personStatus) {
   personStatus.HP
     ? (personTag.innerHTML += `<li>Vida: ${personStatus.HP}</li>`)
     : false;
+  personStatus.BLOCK
+    ? (personTag.innerHTML += `<li>Bloqueio de Dano Recebido: ${Math.floor(
+        personStatus.BLOCK * 100
+      )}%</li>`)
+    : false;
   personStatus.DMG
     ? (personTag.innerHTML += `<li>Dano: ${personStatus.DMG}</li>`)
     : false;
   personStatus.MANA
     ? (personTag.innerHTML += `<li>Mana/Energia: ${personStatus.MANA}</li>`)
     : false;
-  personStatus.SKIL
-    ? (personTag.innerHTML += `<li>Habilidade: ${personStatus.SKIL[0]}</li>`)
-    : false;
-  personStatus.acrescimoDeDano
-    ? (personTag.innerHTML += `<li>Aumento de Dano: ${Math.floor(
-        personStatus.acrescimoDeDano[0] * 100 - 100
-      )}%</li>`)
-    : false;
-  personStatus.manaGasta
-    ? (personTag.innerHTML += `<li>Custo de Mana/Energia: ${personStatus.manaGasta[0]}</li>`)
-    : false;
+  if (personStatus.SKIL) {
+    switch (skilCount) {
+      case 0:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>`;
+        break;
+      case 1:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>
+        <li>${personStatus.SKIL[1]}</li>`;
+        break;
+      case 2:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>
+        <li>${personStatus.SKIL[1]}</li>
+        <li>${personStatus.SKIL[2]}</li>`;
+        break;
+      case 3:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>
+        <li>${personStatus.SKIL[1]}</li>
+        <li>${personStatus.SKIL[2]}</li>
+        <li>${personStatus.SKIL[3]}</li>`;
+        break;
+      default:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>`;
+    }
+  }
 }
 function luckAction() {
   const num = Math.round(Math.random() * 6 + countEnemy / 2);
@@ -86,61 +103,121 @@ function luckAction() {
       return Number(Math.random().toFixed(1));
   }
 }
-function attackChoice(playerStatus, playerTag, enemyTag, enemyStatus, action) {
+function attackChoice(
+  playerStatus,
+  playerTag,
+  enemyTag,
+  enemyStatus,
+  action,
+  skillChoiced
+) {
   if (action === "ataque") {
     damagePlayer = Math.round(
-      playerStatus.DMG * playerStatus.acrescimoDeDano * luckAction()
+      playerStatus.DMG *
+        playerStatus.acrescimoDeDano[skillChoiced] *
+        luckAction()
     );
     enemyStatus.HP -= damagePlayer;
     if (enemyStatus.HP <= 0) {
-      ativeDesatived(twoImage);
-      ativeDesatived(congratulation);
-      ativeDesatived(attack);
-      ativeDesatived(escapeClick);
-      ativeDesatived(continueBattle);
-      ativeDesatived(continueBattleGame1);
-      atualPlayerStatus.HP += damageEnemyAcumulate;
-      atualPlayerStatus.MANA += manaEnergiAcumulate;
-      window.alert(
-        `${actionMessage.playerAtk}\n
-          Você matou o ${currentlyEnemy.Name}\n
-          Causou ${damagePlayer} de dano\n
-          E vida do ${currentlyEnemy.Name} foi reduzida em 0\n
-          Sua Vida e Mana/Energia foram restauradas!`
-      );
-      atualPlayerStatus.HP = Math.round(
-        (atualPlayerStatus.HP *= countEnemy + 1.5)
-      );
-      atualPlayerStatus.DMG = Math.round(
-        (atualPlayerStatus.DMG *= countEnemy + 1.15)
-      );
-      atualPlayerStatus.MANA = Math.round(
-        (atualPlayerStatus.MANA *= countEnemy + 1.15)
-      );
+      if (countEnemy === enemyList.length - 1) {
+        window.alert(
+          `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
+              ${actionMessage.playerAtk}\n
+              Causou ${damagePlayer} de dano\n
+              --------------------------------------------\n
+              O ${currentlyEnemy.Name} está morto\n
+              E vida do ${currentlyEnemy.Name} foi reduzida em 0\n
+              --------------------------------------------\n
+              Encontre com a atendente da guilda para mais informações`
+        );
+        ativeDesatived(twoImage);
+        ativeDesatived(gameEnd);
+        for (let i = 0; i <= countSkil; i++) {
+          ativeDesatived(listBottonSkil[i]);
+        }
+        ativeDesatived(escapeClick);
+        background.style.backgroundImage = `url(${guildImage.src})`;
+        tryAgainButton.innerHTML = "Jogar Novamente";
+        tryAgainButton.classList.toggle("tryAgain");
+        tryAgainButton.classList.toggle("beginBattle");
+        tryAgainButton.classList.toggle("classButton");
+        ativeDesatived(tryAgain);
+        ativeDesatived(tryAgainButton);
+        countEnemy = 0;
+        countSkil = 0;
+        countArmy = 0;
+        informActionBattle = "";
+        damageEnemy = 0;
+        damageEnemyAcumulate = 0;
+        damagePlayer = 0;
+        manaEnergiAcumulate = 0;
+        backgroundSound.pause();
+      } else {
+        ativeDesatived(twoImage);
+        ativeDesatived(congratulation);
+        for (let i = 0; i <= countSkil; i++) {
+          ativeDesatived(listBottonSkil[i]);
+        }
+        ativeDesatived(escapeClick);
+        ativeDesatived(continueBattle);
+        ativeDesatived(newDefensive);
+        ativeDesatived(newOfensive);
+        ativeDesatived(newSkill);
+        atualPlayerStatus.HP += damageEnemyAcumulate;
+        atualPlayerStatus.MANA += manaEnergiAcumulate;
+        window.alert(
+          `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
+        ${actionMessage.playerAtk}\n
+        Causou ${damagePlayer} de dano\n
+        --------------------------------------------\n
+        O ${currentlyEnemy.Name} está morto\n
+        E vida do ${currentlyEnemy.Name} foi reduzida em 0\n
+        --------------------------------------------\n
+        Você subiu de nível!!!\n
+        Sua Vida e Mana/Energia serão restauradas!\n
+        Vida, Dano e Mana/Energia aumentarão`
+        );
+        atualPlayerStatus.HP = Math.round(
+          (atualPlayerStatus.HP *= countEnemy + 1.5)
+        );
+        atualPlayerStatus.DMG = Math.round(
+          (atualPlayerStatus.DMG *= countEnemy + 1.15)
+        );
+        atualPlayerStatus.MANA = Math.round(
+          (atualPlayerStatus.MANA *= countEnemy + 1.15)
+        );
+      }
     } else {
+      for (let i = 0; i <= countSkil; i++) {
+        ativeDesatived(listBottonSkil[i]);
+      }
+      ativeDesatived(attack);
       returnStatus(enemyTag, enemyStatus);
-      playerStatus.MANA -= playerStatus.manaGasta;
-      manaEnergiAcumulate += playerStatus.manaGasta;
-      returnStatus(playerTag, playerStatus);
-      attack.innerText = "Defender";
+      playerStatus.MANA -= playerStatus.manaGasta[countSkil];
+      manaEnergiAcumulate += playerStatus.manaGasta[countSkil];
+      returnStatus(playerTag, playerStatus, countSkil);
+      attack.innerText = "Defender"; //remover esta linha após configurar os botões
       window.alert(
-        `${actionMessage.playerAtk}\n
-          Causou ${damagePlayer} de dano\n
-          A vida do ${currentlyEnemy.Name} reduziu para ${currentlyEnemy.HP}\n
-          Sua Mana/Energia foi reduzida para ${playerStatus.MANA}`
+        `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
+        ${actionMessage.playerAtk}\n
+        Causou ${damagePlayer} de dano\n
+        --------------------------------------------\n
+        A vida do ${currentlyEnemy.Name} reduziu para ${currentlyEnemy.HP}\n
+        Sua Mana/Energia foi reduzida para ${playerStatus.MANA}`
       );
     }
     afterAction.innerText = `${actionMessage.playerAtk}`;
   }
   if (action === "defesa") {
     damageEnemy = Math.round(
-      enemyStatus.DMG * (luckAction() > 4 ? 1 : luckAction())
+      enemyStatus.DMG *
+        (luckAction() >= 1 ? 0.5 : luckAction()) *
+        (1 - playerStatus.BLOCK)
     );
     playerStatus.HP -= damageEnemy;
     damageEnemyAcumulate += damageEnemy;
-    console.log(damageEnemyAcumulate);
 
-    if (playerStatus.HP <= 0 || playerStatus.MANA < playerStatus.manaGasta) {
+    if (playerStatus.HP <= 0 || playerStatus.MANA < playerStatus.manaGasta[0]) {
       ativeDesatived(twoImage);
       ativeDesatived(attack);
       ativeDesatived(escapeClick);
@@ -148,20 +225,42 @@ function attackChoice(playerStatus, playerTag, enemyTag, enemyStatus, action) {
       background.style.backgroundImage = `url(${loseImage.src})`;
       ativeDesatived(gameOver);
       ativeDesatived(tryAgain);
+      ativeDesatived(tryAgainButton);
+      countEnemy = 0;
+      countSkil = 0;
+      countArmy = 0;
+      informActionBattle = "";
+      damageEnemy = 0;
+      damageEnemyAcumulate = 0;
+      damagePlayer = 0;
+      manaEnergiAcumulate = 0;
       backgroundSound.pause();
       window.alert(
         `Recebeu ${damageEnemy} de dano\n
-          E sua vida foi reduzida para 0`
+        --------------------------------------------\n
+        E sua vida foi reduzida para 0`
       );
     } else {
-      returnStatus(playerTag, playerStatus);
+      returnStatus(playerTag, playerStatus, countSkil);
       afterAction.innerText = `${actionMessage.playerDfs}`;
+      for (let i = 0; i <= countSkil; i++) {
+        ativeDesatived(listBottonSkil[i]);
+      }
+      ativeDesatived(attack);
       window.alert(
         `${actionMessage.playerDfs}\n
-          Recebeu ${damageEnemy} de dano\n
-          Sua vida foi reduzida para ${playerStatus.HP}`
+        Recebeu ${damageEnemy} de dano\n
+        --------------------------------------------\n
+        Sua vida foi reduzida para ${playerStatus.HP}`
       );
     }
-    attack.innerText = "Atacar";
   }
+}
+
+function buttonNewSkil(skilSlot) {
+  listBottonSkil[skilSlot].innerHTML = `<h2>${
+    atualPlayerStatus.SKIL[skilSlot]
+  }</h2>Aumento de Dano: ${Math.round(
+    atualPlayerStatus.acrescimoDeDano[skilSlot] * 100 - 100
+  )}%<br/>Mana/Energia: ${atualPlayerStatus.manaGasta[skilSlot]}`;
 }

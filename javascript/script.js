@@ -1,48 +1,41 @@
-
 window.onload = () => {
   "onload", backgroundSound.play();
 };
 mageChoice.addEventListener("click", () => {
-  alterDisplayInitical(
-    twoImage, 
-    beginBattle, 
-    oneImage, 
-    choiceOne, 
-    mageImage);
+  alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
   goodChoice.innerHTML = `A <i>Maga</i> é um ótima escolha!`;
-  returnStatus(mageSkil, mageCaracteristcs);
-  atualPlayerTag = mageSkil;
+  returnStatus(playerSkil, mageCaracteristcs, countSkil);
+  atualPlayerTag = playerSkil;
   atualPlayerStatus = mageCaracteristcs;
+  playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
   backgroundSound.play();
 });
 warriorChoice.addEventListener("click", () => {
-  alterDisplayInitical(
-    twoImage,
-    beginBattle,
-    oneImage,
-    choiceOne,
-    warriorImage
-  );
+  alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
   goodChoice.innerHTML = `O <i>Guerreiro</i> é um ótima escolha!`;
-  returnStatus(warriorSkil, warriorCaracteristcs);
-  atualPlayerTag = warriorSkil;
+  returnStatus(playerSkil, warriorCaracteristcs, countSkil);
+  atualPlayerTag = playerSkil;
   atualPlayerStatus = warriorCaracteristcs;
+  playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
   backgroundSound.play();
 });
 startBattleGame.addEventListener("click", () => {
-  backgroundSound.src = "./sounds/jungle.mp3";
-  background.style.backgroundImage = `url(${backgroundFlorest.src})`;
-  monsterImage.src = goblinImage.src;
   ativeDesatived(beginBattle);
   ativeDesatived(choiceBattle);
   ativeDesatived(leftItem);
   ativeDesatived(monster);
-  ativeDesatived(monsterStatus);
+  //ativeDesatived(monsterStatus);
   ativeDesatived(afterAction);
-  countEnemy += 1;
-  returnStatus(monsterStatus, goblinCaracteristcs);
-  currentlyEnemy = goblinCaracteristcs;
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+  }
+  buttonNewSkil(countSkil);
+  currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
+  returnStatus(currentlyEnemyTag, currentlyEnemy);
+  backgroundSound.src = currentlyEnemy.MonsterSound;
+  background.style.backgroundImage = `url(${currentlyEnemy.MonsterBackground})`;
+  monsterImage.src = currentlyEnemy.MonsterImage;
   backgroundSound.play();
 });
 escapeClick.addEventListener("click", () => {
@@ -50,10 +43,97 @@ escapeClick.addEventListener("click", () => {
   ativeDesatived(attack);
   ativeDesatived(escapeClick);
   ativeDesatived(afterAction);
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+  }
   background.style.backgroundImage = `url(${quitImage.src})`;
   backgroundSound.pause();
   quitSound.play();
 });
+
+newDefensive.addEventListener("click", () => {
+  atualPlayerStatus.BLOCK += 0.19;
+  countArmy++;
+  playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
+  damageEnemyAcumulate = 0;
+  manaEnergiAcumulate = 0;
+  afterAction.innerText = "";
+  returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
+  countEnemy++;
+  ativeDesatived(congratulation);
+  ativeDesatived(twoImage);
+  ativeDesatived(continueBattle);
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+    buttonNewSkil(i);
+  }
+  ativeDesatived(escapeClick);
+  ativeDesatived(newDefensive);
+  ativeDesatived(newOfensive);
+  ativeDesatived(newSkill);
+  currentlyEnemy = enemyList[countEnemy];
+  currentlyEnemyTag = monsterStatus;
+  returnStatus(currentlyEnemyTag, currentlyEnemy);
+  backgroundSound.src = currentlyEnemy.MonsterSound;
+  background.style.backgroundImage = `url(${currentlyEnemy.MonsterBackground})`;
+  monsterImage.src = currentlyEnemy.MonsterImage;
+  backgroundSound.play();
+});
+newOfensive.addEventListener("click", () => {
+  atualPlayerStatus.DMG *= Math.round(1.47);
+  countArmy++;
+  playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
+  damageEnemyAcumulate = 0;
+  manaEnergiAcumulate = 0;
+  afterAction.innerText = "";
+  returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
+  countEnemy++;
+  ativeDesatived(congratulation);
+  ativeDesatived(twoImage);
+  ativeDesatived(continueBattle);
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+    buttonNewSkil(i);
+  }
+  ativeDesatived(escapeClick);
+  ativeDesatived(newDefensive);
+  ativeDesatived(newOfensive);
+  ativeDesatived(newSkill);
+  currentlyEnemy = enemyList[countEnemy];
+  currentlyEnemyTag = monsterStatus;
+  returnStatus(currentlyEnemyTag, currentlyEnemy);
+  backgroundSound.src = currentlyEnemy.MonsterSound;
+  background.style.backgroundImage = `url(${currentlyEnemy.MonsterBackground})`;
+  monsterImage.src = currentlyEnemy.MonsterImage;
+  backgroundSound.play();
+});
+newSkill.addEventListener("click", () => {
+  countSkil++;
+  damageEnemyAcumulate = 0;
+  manaEnergiAcumulate = 0;
+  afterAction.innerText = "";
+  returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+    buttonNewSkil(i);
+  }
+  countEnemy++;
+  ativeDesatived(congratulation);
+  ativeDesatived(twoImage);
+  ativeDesatived(continueBattle);
+  ativeDesatived(escapeClick);
+  ativeDesatived(newDefensive);
+  ativeDesatived(newOfensive);
+  ativeDesatived(newSkill);
+  currentlyEnemy = enemyList[countEnemy];
+  currentlyEnemyTag = monsterStatus;
+  returnStatus(currentlyEnemyTag, currentlyEnemy);
+  backgroundSound.src = currentlyEnemy.MonsterSound;
+  background.style.backgroundImage = `url(${currentlyEnemy.MonsterBackground})`;
+  monsterImage.src = currentlyEnemy.MonsterImage;
+  backgroundSound.play();
+});
+
 attack.addEventListener("click", () => {
   if (attack.innerText === "Atacar") {
     attackChoice(
@@ -73,22 +153,54 @@ attack.addEventListener("click", () => {
     );
   }
 });
-continueBattleGame1.addEventListener("click", () => {
-  damageEnemyAcumulate = 0;
-  afterAction.innerText = "";
-  returnStatus(atualPlayerTag, atualPlayerStatus);
-  backgroundSound.src = "./sounds/monastery.mp3";
-  background.style.backgroundImage = `url(${backgroundPrison.src})`;
-  monsterImage.src = minotaurImage.src;
-  ativeDesatived(twoImage);
-  ativeDesatived(congratulation);
-  ativeDesatived(attack);
-  ativeDesatived(escapeClick);
-  ativeDesatived(continueBattle);
-  ativeDesatived(continueBattleGame1);
-  countEnemy += 1;
-  currentlyEnemy = minotaurCaracteristcs;
-  currentlyEnemyTag = monsterStatus;
-  returnStatus(currentlyEnemyTag, currentlyEnemy);
-  backgroundSound.play();
+
+skil1.addEventListener("click", () => {
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    0
+  );
+});
+skil2.addEventListener("click", () => {
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    1
+  );
+});
+skil3.addEventListener("click", () => {
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    2
+  );
+});
+skil4.addEventListener("click", () => {
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    3
+  );
+});
+skil5.addEventListener("click", () => {
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    4
+  );
 });
