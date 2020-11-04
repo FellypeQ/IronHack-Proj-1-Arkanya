@@ -49,9 +49,16 @@ function returnStatus(personTag, personStatus, skilCount) {
         break;
       case 3:
         personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>
-        <li>${personStatus.SKIL[1]}</li>
-        <li>${personStatus.SKIL[2]}</li>
-        <li>${personStatus.SKIL[3]}</li>`;
+          <li>${personStatus.SKIL[1]}</li>
+          <li>${personStatus.SKIL[2]}</li>
+          <li>${personStatus.SKIL[3]}</li>`;
+        break;
+      case 4:
+        personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>
+            <li>${personStatus.SKIL[1]}</li>
+            <li>${personStatus.SKIL[2]}</li>
+            <li>${personStatus.SKIL[3]}</li>
+            <li>${personStatus.SKIL[4]}</li>`;
         break;
       default:
         personTag.innerHTML += `<li>Habilidades: ${personStatus.SKIL[0]}</li>`;

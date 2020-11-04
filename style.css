@@ -75,11 +75,12 @@
   width: 250px;
 }
 .skilButton {
-  font-size: larger;
+  font-size: medium;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   display: none;
+  margin: auto 0.5%;
 }
 .defenseButton {
   justify-content: center;

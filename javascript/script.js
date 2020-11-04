@@ -57,9 +57,19 @@ newDefensive.addEventListener("click", () => {
   playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
   damageEnemyAcumulate = 0;
   manaEnergiAcumulate = 0;
+  window.alert(
+    `Você escolheu aumentar sua defesa!\n
+    Agora você consegue bloquear os ataques em ${
+      atualPlayerStatus.BLOCK * 100
+    }%\n
+    --------------------------------------------\n
+    Como subiu de nivel, seu novos status é:\n
+    Vida: ${atualPlayerStatus.HP}\n
+    Dano: ${atualPlayerStatus.DMG}\n
+    Mana/Energia: ${atualPlayerStatus.MANA}`
+  );
   afterAction.innerText = "";
   returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
-  countEnemy++;
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
@@ -71,6 +81,7 @@ newDefensive.addEventListener("click", () => {
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
+  countEnemy++;
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
@@ -87,7 +98,15 @@ newOfensive.addEventListener("click", () => {
   manaEnergiAcumulate = 0;
   afterAction.innerText = "";
   returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
-  countEnemy++;
+  window.alert(
+    `Você escolheu aumentar seu ataque!\n
+    Agora todos os seus ataques tem um bonus de dano de 47%\n
+    --------------------------------------------\n
+    Como subiu de nivel, seu novos status é:\n
+    Vida: ${atualPlayerStatus.HP}\n
+    Dano: ${atualPlayerStatus.DMG}\n
+    Mana/Energia: ${atualPlayerStatus.MANA}`
+  );
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
@@ -99,6 +118,7 @@ newOfensive.addEventListener("click", () => {
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
+  countEnemy++;
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
@@ -112,12 +132,24 @@ newSkill.addEventListener("click", () => {
   damageEnemyAcumulate = 0;
   manaEnergiAcumulate = 0;
   afterAction.innerText = "";
+  window.alert(
+    `Você escolheu uma nova habilidade!\n
+    Habilidade: ${atualPlayerStatus.SKIL[countSkil]}\n
+    Aumento de Dano: ${Math.round(
+      atualPlayerStatus.acrescimoDeDano[countSkil] * 100 - 100
+    )}%\n
+    Mana/Energia: ${atualPlayerStatus.manaGasta[countSkil]}
+    --------------------------------------------\n
+    Como subiu de nivel, seu novos status é:\n
+    Vida: ${atualPlayerStatus.HP}\n
+    Dano: ${atualPlayerStatus.DMG}\n
+    Mana/Energia: ${atualPlayerStatus.MANA}`
+  );
   returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
   for (let i = 0; i <= countSkil; i++) {
     ativeDesatived(listBottonSkil[i]);
     buttonNewSkil(i);
   }
-  countEnemy++;
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
@@ -125,6 +157,7 @@ newSkill.addEventListener("click", () => {
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
+  countEnemy++;
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
