@@ -183,10 +183,6 @@ function attackChoice(
         bonusDefCost = 1;
         backgroundSound.pause();
       } else {
-        bonusAtk = 1;
-        bonusAtkCost = 1;
-        bonusDef = 1;
-        bonusDefCost = 1;
         ativeDesatived(twoImage);
         ativeDesatived(congratulation);
         for (let i = 0; i <= countSkil; i++) {
@@ -223,6 +219,10 @@ function attackChoice(
         atualPlayerStatus.MANA = Math.round(
           (atualPlayerStatus.MANA *= countEnemy + 1.7)
         );
+        bonusAtk = 1;
+        bonusAtkCost = 1;
+        bonusDef = 1;
+        bonusDefCost = 1;
       }
     } else {
       for (let i = 0; i <= countSkil; i++) {
@@ -272,14 +272,6 @@ function attackChoice(
       ativeDesatived(tryAgain);
       ativeDesatived(tryAgainButton);
       ativeBonus(infoBonusDef);
-      countEnemy = 0;
-      countSkil = 0;
-      countArmy = 0;
-      informActionBattle = "";
-      damageEnemy = 0;
-      damageEnemyAcumulate = 0;
-      damagePlayer = 0;
-      manaEnergiAcumulate = 0;
       backgroundSound.pause();
       window.alert(
         `Recebeu ${damageEnemy} de dano\n
@@ -288,6 +280,18 @@ function attackChoice(
         Sua Mana/Energia ficou a baixo de 0\n
         Devido a isso não conseguiu mais atacar e morreu`
       );
+      countEnemy = 0;
+      countSkil = 0;
+      countArmy = 0;
+      informActionBattle = "";
+      damageEnemy = 0;
+      damageEnemyAcumulate = 0;
+      damagePlayer = 0;
+      manaEnergiAcumulate = 0;
+      bonusAtk = 1;
+      bonusAtkCost = 1;
+      bonusDef = 1;
+      bonusDefCost = 1;
     } else {
       returnStatus(playerTag, playerStatus, countSkil);
       afterAction.innerText = `${actionMessage.playerDfs}`;

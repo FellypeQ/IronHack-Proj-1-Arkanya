@@ -272,10 +272,6 @@ skil5.addEventListener("click", () => {
   );
 });
 
-bonus30Ative = 0;
-bonus60Ative = 0;
-bonus80Ative = 0;
-
 bonus2x.addEventListener("click", () => {
   if (bonus2xAtive === 0) {
     bonus2x.style.backgroundColor = "darkRed";
