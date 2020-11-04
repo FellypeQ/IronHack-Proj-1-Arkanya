@@ -10,6 +10,13 @@ let mageCaracteristcs = {
     "Tempestade de Fogo",
     "Meteoro",
   ],
+  SkilSound: [
+    bolaDeFogo,
+    labareda,
+    raioInfernalSound,
+    tempestadeDeFogo,
+    meteoroSound,
+  ],
   acrescimoDeDano: [1.3, 3.98, 8.1, 11.4, 14.7],
   manaGasta: [35, 93, 383, 1263, 4167],
   PlayerImage: [
@@ -32,6 +39,13 @@ let warriorCaracteristcs = {
     "Ataque Frenético",
     "Ódio do Berserker",
   ],
+  SkilSound: [
+    corteDiagonalSound,
+    estocada,
+    dilaceracao,
+    ataqueFrenetico,
+    odioDoBerserker,
+  ],
   acrescimoDeDano: [1.15, 2.7, 5.2, 8.9, 12.6],
   manaGasta: [6, 9, 22, 81, 299],
   PlayerImage: [
@@ -52,6 +66,7 @@ let goblinCaracteristcs = {
   MonsterBackground: backgroundFlorest.src,
   MonsterSound: "./sounds/jungle.mp3",
   MonsterImage: goblinImage.src,
+  MonsterAtkSound: goblinSound,
 };
 let minotaurCaracteristcs = {
   Name: "Minotauro",
@@ -60,6 +75,7 @@ let minotaurCaracteristcs = {
   MonsterBackground: backgroundPrison.src,
   MonsterSound: "./sounds/monastery.mp3",
   MonsterImage: minotaurImage.src,
+  MonsterAtkSound: minotauroSound,
 };
 let iceWolfCaracteristcs = {
   Name: "Lobo de Gelo",
@@ -68,6 +84,7 @@ let iceWolfCaracteristcs = {
   MonsterBackground: backgroundIce.src,
   MonsterSound: "./sounds/icecaves.mp3",
   MonsterImage: iceWolfImage.src,
+  MonsterAtkSound: goblinSound,
 };
 let salamandrefCaracteristcs = {
   Name: "Salamandra desértica",
@@ -76,6 +93,7 @@ let salamandrefCaracteristcs = {
   MonsterBackground: backgroundDesert.src,
   MonsterSound: "./sounds/desert.mp3",
   MonsterImage: salamandre.src,
+  MonsterAtkSound: goblinSound,
 };
 let demonLordCaracteristcs = {
   Name: "Lorde Demônio",
@@ -84,6 +102,7 @@ let demonLordCaracteristcs = {
   MonsterBackground: backgroundInfern.src,
   MonsterSound: "./sounds/leoric.mp3",
   MonsterImage: demonLord.src,
+  MonsterAtkSound: demonLordSound,
 };
 
 const enemyList = [

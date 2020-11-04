@@ -193,6 +193,7 @@ newSkill.addEventListener("click", () => {
 });
 
 attack.addEventListener("click", () => {
+  currentlyEnemy.MonsterAtkSound.play();
   bonus2x.style.backgroundColor = "#0a1017";
   bonus3x.style.backgroundColor = "#0a1017";
   bonus5x.style.backgroundColor = "#0a1017";
@@ -207,6 +208,7 @@ attack.addEventListener("click", () => {
 });
 
 skil1.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[0].play();
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
@@ -220,6 +222,7 @@ skil1.addEventListener("click", () => {
   );
 });
 skil2.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[1].play();
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
@@ -233,6 +236,7 @@ skil2.addEventListener("click", () => {
   );
 });
 skil3.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[2].play();
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
@@ -246,6 +250,7 @@ skil3.addEventListener("click", () => {
   );
 });
 skil4.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[3].play();
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
@@ -259,6 +264,7 @@ skil4.addEventListener("click", () => {
   );
 });
 skil5.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[4].play();
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";

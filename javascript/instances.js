@@ -89,6 +89,35 @@ backgroundSound.volume = 0.05;
 const quitSound = new Audio();
 quitSound.src = "./sounds/angry-ghost.wav";
 
+const bolaDeFogo = new Audio();
+bolaDeFogo.src = "./sounds/bola-de-fogo.wav";
+const labareda = new Audio();
+labareda.src = "./sounds/labareda.wav";
+const raioInfernalSound = new Audio();
+raioInfernalSound.src = "./sounds/raio-infernal.wav";
+const tempestadeDeFogo = new Audio();
+tempestadeDeFogo.src = "./sounds/tempestade-de-fogo.wav";
+const meteoroSound = new Audio();
+meteoroSound.src = "./sounds/meteoro.wav";
+
+const corteDiagonalSound = new Audio();
+corteDiagonalSound.src = "./sounds/corte-diagonal.mp3";
+const estocada = new Audio();
+estocada.src = "./sounds/estocada.wav";
+const dilaceracao = new Audio();
+dilaceracao.src = "./sounds/dilaceracao.wav";
+const ataqueFrenetico = new Audio();
+ataqueFrenetico.src = "./sounds/ataque-frenetico.wav";
+const odioDoBerserker = new Audio();
+odioDoBerserker.src = "./sounds/odio-do-berserker.wav";
+
+const goblinSound = new Audio();
+goblinSound.src = "./sounds/goblin.wav";
+const minotauroSound = new Audio();
+minotauroSound.src = "./sounds/minotauro.wav";
+const demonLordSound = new Audio();
+demonLordSound.src = "./sounds/demon-lord-atack.wav";
+
 /*instância as imagens*/
 const mageImage1 = new Image();
 mageImage1.src = "./images/maga-1.jpg";

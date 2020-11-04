@@ -289,7 +289,7 @@ function attackChoice(
     );
     playerStatus.HP -= Math.round(damageEnemy * bonusDef);
     damageEnemyAcumulate += damageEnemy;
-    playerStatus.MANA *= bonusDefCost;
+    playerStatus.MANA *= Math.round(bonusDefCost);
 
     if (playerStatus.HP <= 0 || playerStatus.MANA < playerStatus.manaGasta[0]) {
       ativeDesatived(twoImage);
