@@ -34,6 +34,17 @@ const skil4 = document.getElementById("skil4");
 const skil5 = document.getElementById("skil5");
 const listBottonSkil = [skil1, skil2, skil3, skil4, skil5];
 
+const bonusButton = document.getElementById("bonusButton");
+const infoBonusAtk = document.getElementById("infoBonusAtk");
+const bonus2x = document.getElementById("bonus2x");
+const bonus3x = document.getElementById("bonus3x");
+const bonus5x = document.getElementById("bonus5x");
+const bonus8x = document.getElementById("bonus8x");
+const infoBonusDef = document.getElementById("infoBonusDef");
+const bonus30 = document.getElementById("bonus30");
+const bonus60 = document.getElementById("bonus60");
+const bonus80 = document.getElementById("bonus80");
+
 const congratulation = document.getElementById("congratulation");
 const continueBattle = document.getElementById("continueBattle");
 const newDefensive = document.getElementById("newDefensive");
@@ -48,6 +59,19 @@ let actionMessage = {
   playerAtk: "",
   playerDfs: "",
 };
+
+let bonusAtk = 1;
+let bonusAtkCost = 1;
+let bonus2xAtive = 0;
+let bonus3xAtive = 0;
+let bonus5xAtive = 0;
+let bonus8xAtive = 0;
+let bonusDef = 1;
+let bonusDefCost = 1;
+let bonus30Ative = 0;
+let bonus60Ative = 0;
+let bonus80Ative = 0;
+
 let informActionBattle = "";
 let damageEnemy = 0;
 let damageEnemyAcumulate = 0;
@@ -71,7 +95,7 @@ mageImage1.src = "./images/maga-1.jpg";
 const mageImage2 = new Image();
 mageImage2.src = "./images/maga-2.jpg";
 const mageImage3 = new Image();
-mageImage3.src = "./images/maga-3.jpg";
+mageImage3.src = "./images/maga-3.png";
 const mageImage4 = new Image();
 mageImage4.src = "./images/maga-4.jpg";
 const mageImage5 = new Image();
@@ -84,7 +108,7 @@ warriorImage2.src = "./images/barbaro-2.jpg";
 const warriorImage3 = new Image();
 warriorImage3.src = "./images/barbaro-3.jpg";
 const warriorImage4 = new Image();
-warriorImage4.src = "./images/barbaro-4.jpg";
+warriorImage4.src = "./images/barbaro-4.png";
 const warriorImage5 = new Image();
 warriorImage5.src = "./images/barbaro-5.jpg";
 

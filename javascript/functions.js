@@ -1,3 +1,19 @@
+function zeraContadores() {
+  bonusAtk = 1;
+  bonusAtkCost = 1;
+  bonusDef = 1;
+  bonusDefCost = 1;
+
+  informActionBattle = "";
+  damageEnemy = 0;
+  damageEnemyAcumulate = 0;
+  damagePlayer = 0;
+  manaEnergiAcumulate = 0;
+
+  countEnemy = 0;
+  countSkil = 0;
+  countArmy = 0;
+}
 function ativeDesatived(cssTagId) {
   cssTagId.classList.toggle("ative");
   cssTagId.classList.toggle("desatived");
@@ -124,13 +140,15 @@ function attackChoice(
         playerStatus.acrescimoDeDano[skillChoiced] *
         luckAction()
     );
-    enemyStatus.HP -= damagePlayer;
+    enemyStatus.HP -= damagePlayer * bonusAtk;
     if (enemyStatus.HP <= 0) {
       if (countEnemy === enemyList.length - 1) {
         window.alert(
           `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
               ${actionMessage.playerAtk}\n
-              Causou ${damagePlayer} de dano\n
+              Causou ${damagePlayer} de dano + ${
+            damagePlayer * bonusAtk - damagePlayer
+          } devido o bônus de ataque\n
               --------------------------------------------\n
               O ${currentlyEnemy.Name} está morto\n
               E vida do ${currentlyEnemy.Name} foi reduzida em 0\n
@@ -142,6 +160,7 @@ function attackChoice(
         for (let i = 0; i <= countSkil; i++) {
           ativeDesatived(listBottonSkil[i]);
         }
+        ativeBonus(infoBonusAtk);
         ativeDesatived(escapeClick);
         background.style.backgroundImage = `url(${guildImage.src})`;
         tryAgainButton.innerHTML = "Jogar Novamente";
@@ -158,13 +177,22 @@ function attackChoice(
         damageEnemyAcumulate = 0;
         damagePlayer = 0;
         manaEnergiAcumulate = 0;
+        bonusAtk = 1;
+        bonusAtkCost = 1;
+        bonusDef = 1;
+        bonusDefCost = 1;
         backgroundSound.pause();
       } else {
+        bonusAtk = 1;
+        bonusAtkCost = 1;
+        bonusDef = 1;
+        bonusDefCost = 1;
         ativeDesatived(twoImage);
         ativeDesatived(congratulation);
         for (let i = 0; i <= countSkil; i++) {
           ativeDesatived(listBottonSkil[i]);
         }
+        ativeBonus(infoBonusAtk);
         ativeDesatived(escapeClick);
         ativeDesatived(continueBattle);
         ativeDesatived(newDefensive);
@@ -175,7 +203,9 @@ function attackChoice(
         window.alert(
           `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
         ${actionMessage.playerAtk}\n
-        Causou ${damagePlayer} de dano\n
+        Causou ${damagePlayer} de dano + ${
+            damagePlayer * bonusAtk - damagePlayer
+          } devido o bônus de ataque\n
         --------------------------------------------\n
         O ${currentlyEnemy.Name} está morto\n
         E vida do ${currentlyEnemy.Name} foi reduzida em 0\n
@@ -185,33 +215,40 @@ function attackChoice(
         Vida, Dano e Mana/Energia aumentarão`
         );
         atualPlayerStatus.HP = Math.round(
-          (atualPlayerStatus.HP *= countEnemy + 1.5)
+          (atualPlayerStatus.HP *= countEnemy + 2.1)
         );
         atualPlayerStatus.DMG = Math.round(
           (atualPlayerStatus.DMG *= countEnemy + 1.15)
         );
         atualPlayerStatus.MANA = Math.round(
-          (atualPlayerStatus.MANA *= countEnemy + 1.15)
+          (atualPlayerStatus.MANA *= countEnemy + 1.7)
         );
       }
     } else {
       for (let i = 0; i <= countSkil; i++) {
         ativeDesatived(listBottonSkil[i]);
       }
+      ativeBonus(infoBonusAtk);
+      ativeBonus(infoBonusDef);
       ativeDesatived(attack);
       returnStatus(enemyTag, enemyStatus);
-      playerStatus.MANA -= playerStatus.manaGasta[countSkil];
+      playerStatus.MANA -= playerStatus.manaGasta[countSkil] * bonusAtkCost;
       manaEnergiAcumulate += playerStatus.manaGasta[countSkil];
       returnStatus(playerTag, playerStatus, countSkil);
-      attack.innerText = "Defender"; //remover esta linha após configurar os botões
       window.alert(
         `Você utilizou ${playerStatus.SKIL[skillChoiced]}\n
         ${actionMessage.playerAtk}\n
-        Causou ${damagePlayer} de dano\n
+        Causou ${damagePlayer} de dano + ${
+          damagePlayer * bonusAtk - damagePlayer
+        } devido o bônus de ataque\n
         --------------------------------------------\n
         A vida do ${currentlyEnemy.Name} reduziu para ${currentlyEnemy.HP}\n
         Sua Mana/Energia foi reduzida para ${playerStatus.MANA}`
       );
+      bonusAtk = 1;
+      bonusAtkCost = 1;
+      bonusDef = 1;
+      bonusDefCost = 1;
     }
     afterAction.innerText = `${actionMessage.playerAtk}`;
   }
@@ -221,8 +258,9 @@ function attackChoice(
         (luckAction() >= 1 ? 0.5 : luckAction()) *
         (1 - playerStatus.BLOCK)
     );
-    playerStatus.HP -= damageEnemy;
+    playerStatus.HP -= Math.round(damageEnemy * bonusDef);
     damageEnemyAcumulate += damageEnemy;
+    playerStatus.MANA *= bonusDefCost;
 
     if (playerStatus.HP <= 0 || playerStatus.MANA < playerStatus.manaGasta[0]) {
       ativeDesatived(twoImage);
@@ -233,6 +271,7 @@ function attackChoice(
       ativeDesatived(gameOver);
       ativeDesatived(tryAgain);
       ativeDesatived(tryAgainButton);
+      ativeBonus(infoBonusDef);
       countEnemy = 0;
       countSkil = 0;
       countArmy = 0;
@@ -244,8 +283,10 @@ function attackChoice(
       backgroundSound.pause();
       window.alert(
         `Recebeu ${damageEnemy} de dano\n
+        E sua vida foi reduzida para 0\n
         --------------------------------------------\n
-        E sua vida foi reduzida para 0`
+        Sua Mana/Energia ficou a baixo de 0\n
+        Devido a isso não conseguiu mais atacar e morreu`
       );
     } else {
       returnStatus(playerTag, playerStatus, countSkil);
@@ -253,17 +294,42 @@ function attackChoice(
       for (let i = 0; i <= countSkil; i++) {
         ativeDesatived(listBottonSkil[i]);
       }
+      ativeBonus(infoBonusAtk);
+      ativeBonus(infoBonusDef);
       ativeDesatived(attack);
       window.alert(
         `${actionMessage.playerDfs}\n
         Recebeu ${damageEnemy} de dano\n
         --------------------------------------------\n
-        Sua vida foi reduzida para ${playerStatus.HP}`
+        Bloqueou ${Math.round((1 - bonusDef) * 100)}% com o bônus\n
+        Sua vida foi reduzida para ${playerStatus.HP}\n
+        Sua Mana/Energia foi reduzida para ${playerStatus.MANA} (${Math.round(
+          (1 - bonusDefCost) * 100
+        )}%) devido o bônus`
       );
+      bonusAtk = 1;
+      bonusAtkCost = 1;
+      bonusDef = 1;
+      bonusDefCost = 1;
     }
   }
 }
-
+function ativeBonus(type) {
+  if (type === infoBonusAtk) {
+    ativeDesatived(infoBonusAtk);
+    ativeDesatived(bonus2x);
+    ativeDesatived(bonus3x);
+    ativeDesatived(bonus5x);
+    ativeDesatived(bonus8x);
+  }
+  if (type === infoBonusDef) {
+    ativeDesatived(infoBonusDef);
+    ativeDesatived(bonus30);
+    ativeDesatived(bonus60);
+    ativeDesatived(bonus80);
+  }
+  ativeDesatived(bonusButton);
+}
 function buttonNewSkil(skilSlot) {
   listBottonSkil[skilSlot].innerHTML = `<h2>${
     atualPlayerStatus.SKIL[skilSlot]
