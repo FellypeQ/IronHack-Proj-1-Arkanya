@@ -4,6 +4,14 @@ function zeraContadores() {
   bonusDef = 1;
   bonusDefCost = 1;
 
+  bonus2xAtive = 0;
+  bonus3xAtive = 0;
+  bonus5xAtive = 0;
+  bonus8xAtive = 0;
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
+
   informActionBattle = "";
   damageEnemy = 0;
   damageEnemyAcumulate = 0;
@@ -181,6 +189,13 @@ function attackChoice(
         bonusAtkCost = 1;
         bonusDef = 1;
         bonusDefCost = 1;
+        bonus2xAtive = 0;
+        bonus3xAtive = 0;
+        bonus5xAtive = 0;
+        bonus8xAtive = 0;
+        bonus30Ative = 0;
+        bonus60Ative = 0;
+        bonus80Ative = 0;
         backgroundSound.pause();
       } else {
         ativeDesatived(twoImage);
@@ -223,6 +238,13 @@ function attackChoice(
         bonusAtkCost = 1;
         bonusDef = 1;
         bonusDefCost = 1;
+        bonus2xAtive = 0;
+        bonus3xAtive = 0;
+        bonus5xAtive = 0;
+        bonus8xAtive = 0;
+        bonus30Ative = 0;
+        bonus60Ative = 0;
+        bonus80Ative = 0;
       }
     } else {
       for (let i = 0; i <= countSkil; i++) {
@@ -249,6 +271,13 @@ function attackChoice(
       bonusAtkCost = 1;
       bonusDef = 1;
       bonusDefCost = 1;
+      bonus2xAtive = 0;
+      bonus3xAtive = 0;
+      bonus5xAtive = 0;
+      bonus8xAtive = 0;
+      bonus30Ative = 0;
+      bonus60Ative = 0;
+      bonus80Ative = 0;
     }
     afterAction.innerText = `${actionMessage.playerAtk}`;
   }
@@ -292,6 +321,13 @@ function attackChoice(
       bonusAtkCost = 1;
       bonusDef = 1;
       bonusDefCost = 1;
+      bonus2xAtive = 0;
+      bonus3xAtive = 0;
+      bonus5xAtive = 0;
+      bonus8xAtive = 0;
+      bonus30Ative = 0;
+      bonus60Ative = 0;
+      bonus80Ative = 0;
     } else {
       returnStatus(playerTag, playerStatus, countSkil);
       afterAction.innerText = `${actionMessage.playerDfs}`;
@@ -315,6 +351,13 @@ function attackChoice(
       bonusAtkCost = 1;
       bonusDef = 1;
       bonusDefCost = 1;
+      bonus2xAtive = 0;
+      bonus3xAtive = 0;
+      bonus5xAtive = 0;
+      bonus8xAtive = 0;
+      bonus30Ative = 0;
+      bonus60Ative = 0;
+      bonus80Ative = 0;
     }
   }
 }
