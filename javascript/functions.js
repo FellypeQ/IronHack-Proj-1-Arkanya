@@ -170,6 +170,7 @@ function attackChoice(
         }
         ativeBonus(infoBonusAtk);
         ativeDesatived(escapeClick);
+        ativeDesatived(afterAction);
         background.style.backgroundImage = `url(${guildImage.src})`;
         tryAgainButton.innerHTML = "Jogar Novamente";
         tryAgainButton.classList.toggle("tryAgain");
@@ -205,6 +206,7 @@ function attackChoice(
         }
         ativeBonus(infoBonusAtk);
         ativeDesatived(escapeClick);
+        ativeDesatived(afterAction);
         ativeDesatived(continueBattle);
         ativeDesatived(newDefensive);
         ativeDesatived(newOfensive);

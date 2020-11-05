@@ -84,7 +84,7 @@ let iceWolfCaracteristcs = {
   MonsterBackground: backgroundIce.src,
   MonsterSound: "./sounds/icecaves.mp3",
   MonsterImage: iceWolfImage.src,
-  MonsterAtkSound: goblinSound,
+  MonsterAtkSound: loboDeGeloSound,
 };
 let salamandrefCaracteristcs = {
   Name: "Salamandra desértica",
@@ -93,7 +93,16 @@ let salamandrefCaracteristcs = {
   MonsterBackground: backgroundDesert.src,
   MonsterSound: "./sounds/desert.mp3",
   MonsterImage: salamandre.src,
-  MonsterAtkSound: goblinSound,
+  MonsterAtkSound: salamandraDeserticaSound,
+};
+let spiderQueen = {
+  Name: "Rainha Aranha",
+  HP: 4381936,
+  DMG: 10911,
+  MonsterBackground: backgroundSpiderCave.src,
+  MonsterSound: "./sounds/spider.mp3",
+  MonsterImage: spiderQueeen.src,
+  MonsterAtkSound: rainhaAranhaSound,
 };
 let demonLordCaracteristcs = {
   Name: "Lorde Demônio",

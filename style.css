@@ -14,88 +14,185 @@
   justify-content: space-evenly;
   flex-direction: column;
 }
-/*Seleciona qual imagem principal irá aparecer, através do display none/flex*/
+/*tela de escolha de personagem, div padrão de 1 imagem*/
 .oneImage {
-  margin-top: 7%;
-  width: 95%;
-  height: 600px;
+  margin-top: 0.5%;
+  width: 99%;
+  height: auto;
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
 }
-/*Seleciona qual quadro de escolhas irá aparecer, através do display none/flex*/
+.oneImage img {
+  height: auto;
+  width: 70%;
+}
+.oneImage h1 {
+  margin: 1% 0 0 0;
+  width: 70%;
+  opacity: 0.4;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
 .choice1 {
-  margin: 30px;
-  width: 95%;
+  margin: 1% auto;
+  width: 99%;
+  height: auto;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.choice1 button {
+  width: 20%;
+  height: auto;
+  font-size: 190%;
+  overflow-wrap: break-word;
+  padding: 0.5% 0px;
+}
+/*tela de confirmação de personagem, div padrão de 2 imagens, div de player*/
+.twoImages {
+  margin: 0.5%;
+  width: 99%;
+  height: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.twoImages div {
+  align-items: center;
+  justify-content: center;
+}
+.twoImages ul {
+  text-align: center;
+  list-style: none;
+  font-size: 120%;
+  color: white;
+  margin-top: 2%;
+}
+.leftItem {
+  flex-direction: column;
+}
+.leftItem img {
+  width: 55%;
+}
+.leftItem ul {
+  flex-direction: column;
+  background-color: #0a1017;
+  opacity: 0.7;
+  font-size: 150%;
+  height: auto;
+  padding-right: 15%;
+}
+.rightItem {
+  flex-direction: column;
+}
+.rightItem img{
+  height: 400px;
+  width: auto;
+}
+.rightItem ul {
+  flex-direction: column;
+  background-color: #0a1017;
+  opacity: 0.7;
+  color: white;
+  height: auto;
+  width: 90%;
+  padding-right: 15%;
+}
+.beginBattle {
+  margin: 1% auto;
+  width: 99%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.beginBattle button {
+  height: auto;
+  font-size: 150%;
+  overflow-wrap: break-word;
+  padding: 1% 0px;
+}
+.beginBattle a{
+  background-color: #0a1017;
+  height: auto;  
+  padding: 0.5% 0px;
+  align-items: center;
+  justify-content: center;
+}
+/*botões de ataque e defesa durante batalha*/
+.enemy {
+  flex-direction: column;
+}
+.enemy img{
+  height: 480px;
+}
+.enemy ul {
+  flex-direction: column;
+  background-color: #0a1017;
+  opacity: 0.7;
+  color: white;
+  width: 90%;
+  height: auto;
+}
+.actionsReturn {
+  width: 99%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.actionsReturn h1 {
+  background-color: #0a1017;
+  opacity: 0.7;
+  height: auto;
+  color: white;
+  font-size: 170%;
+  text-align: center;
+  justify-content: center;
 }
 .choiceBattle {
   width: 99%;
+  height: auto;
   justify-content: space-evenly;
-}
-.beginBattle {
-  margin: 30px;
-  width: 95%;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.classButtonStart {
-  background-color: #0a1017;
-  opacity: 0.5;
-  border: none;
-  font-size: xx-large;
-  font-weight: bold;
-  color: white;
-  height: 80px;
-  width: 120%;
-}
-/*Configuração do botão de escolha*/
-.classButton {
-  background-color: #0a1017;
-  opacity: 0.5;
-  border: none;
-  font-size: xx-large;
-  font-weight: bold;
-  color: white;
-  margin: 0.3% auto;
-  height: 100px;
-  width: 250px;
 }
 .skilButtons {
-  margin: 0.1% auto;
-  width: 46.3%;
+  margin: 0.3%;
+  width: auto;
+  height: auto;
+  justify-content: center;  
   flex-wrap: wrap;
-  justify-content: center;
 }
 .skilButton {
-  font-size: medium;
+  background-color: #0a1017;
+  color: white;
+  font-size: 90%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  display: none;
   margin: 0.5%;
   opacity: 0.7;
+  height: auto;
+  width: 190px;
+  padding: 1% 0;
 }
 .divBonusButton {
   margin-top: 0.3%;
-  width: 22%;
+  width: 39%;
   flex-wrap: wrap;
   justify-content: center;
 }
 .divBonusButton h3 {
   background-color: #0a1017;
-  opacity: 0.9;
+  opacity: 0.8;
   color: white;
   text-align: center;
   height: 25%;
   align-items: center;
+  font-size: 100%;
 }
 .divBonusButton button {
   background-color: #0a1017;
-  opacity: 0.8;
-  border: none;
-  font-size: medium;
-  font-weight: bold;
+  opacity: 0.7;
+  font-size: 95%;
   color: white;
   margin: 1%;
   width: 170px;
@@ -103,102 +200,52 @@
   justify-content: center;
 }
 .defenseButton {
-  justify-content: center;
-  align-items: center;
-}
-.tryAgainButton {
   background-color: #0a1017;
-  opacity: 0.5;
   border: none;
-  font-size: xx-large;
   font-weight: bold;
   color: white;
-  height: 100px;
-  width: 250px;
-  position: absolute;
-}
-/*configura 2 imagens*/
-.twoImages {
-  margin: 30px;
-  width: 95%;
-  height: 720px;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.twoImages img {
-  height: 550px;
-  width: auto;
-}
-.twoImages ul {
-  text-align: center;
-  list-style: none;
-  font-size: 1.5rem;
-  color: white;
-  margin-top: 20px;
-}
-.leftItem {
-  flex-direction: column;
-}
-.leftItem ul {
-  flex-direction: column;
-  background-color: #0a1017;
-  opacity: 0.5;
-  color: white;
-  height: auto;
-}
+  font-size: 150%;
+  margin: 0.5%;
+  opacity: 0.7;
+  height: 35%;
+  width: 170px;
 
-.rightItem {
-  flex-direction: column;
-}
-.rightItem ul {
-  flex-direction: column;
-  background-color: #0a1017;
-  opacity: 0.5;
-  color: white;
-  height: auto;
-}
-.actionsReturn {
-  width: 100%;
-  height: auto;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-.afterAction {
+/*Configuração do botão de escolha*/
+.classButton {
   background-color: #0a1017;
-  opacity: 0.5;
-  width: 100%;
-  height: auto;
+  opacity: 0.7;
+  border: none;
+  font-size:150%;
+  font-weight: bold;
   color: white;
+  margin: 0.5%;
+  height: 60px;
+  width: 250px;
   text-align: center;
+  align-items: center;
   justify-content: center;
-}
-/*configura inimingos*/
-.enemy {
-  flex-direction: column;
-}
-.enemy ul {
-  flex-direction: column;
-  background-color: #0a1017;
-  opacity: 0.5;
-  color: white;
-  height: auto;
 }
 /*configura o game over*/
 .gameOver {
   position: absolute;
-  font-size: 12rem;
-  color: red;
-  margin-top: 20%;
-}
-.tryAgain {
-  align-items: center;
-  color: red;
+  font-size: 1000%;
+  color: #80040a;
+  top: 10%;
+  left: 11%;
 }
 .tryAgain a {
+  background-color: #0a1017;
   text-decoration: none;
-  color: red;
   position: absolute;
-  bottom: 20%;
+  bottom: 5%;
+}
+.tryAgainButton {
+  background-color: #80040a;
+  opacity: 1;
+  color: black;
 }
 /*ativa e desativa o bloco*/
 .ative {
