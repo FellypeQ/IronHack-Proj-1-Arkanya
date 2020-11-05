@@ -1,7 +1,7 @@
 let mageCaracteristcs = {
   HP: 120,
   BLOCK: 0,
-  DMG: 320,
+  DMG: 340,
   MANA: 460,
   SKIL: [
     "Bola de Fogo",
@@ -31,9 +31,9 @@ let mageCaracteristcs = {
   ],
 };
 let warriorCaracteristcs = {
-  HP: 320,
+  HP: 410,
   BLOCK: 0,
-  DMG: 210,
+  DMG: 230,
   MANA: 55,
   SKIL: [
     "Corte Diagonal",
@@ -41,6 +41,7 @@ let warriorCaracteristcs = {
     "Dilaceração",
     "Ataque Frenético",
     "Ódio do Berserker",
+    "Furia Incontrolavel",
   ],
   SkilSound: [
     corteDiagonalSound,
@@ -48,15 +49,17 @@ let warriorCaracteristcs = {
     dilaceracao,
     ataqueFrenetico,
     odioDoBerserker,
+    furiaIncontrolavel,
   ],
-  acrescimoDeDano: [1.15, 2.7, 5.2, 8.9, 12.6],
-  manaGasta: [6, 9, 22, 81, 299],
+  acrescimoDeDano: [1.15, 2.7, 5.2, 8.9, 12.6, 22.9],
+  manaGasta: [6, 9, 22, 81, 299, 615],
   PlayerImage: [
     warriorImage1.src,
     warriorImage2.src,
     warriorImage3.src,
     warriorImage4.src,
     warriorImage5.src,
+    warriorImage6.src,
   ],
 };
 
@@ -109,7 +112,7 @@ let spiderQueenCaracteristcs = {
 };
 let demonLordCaracteristcs = {
   Name: "Lorde Demônio",
-  HP: 460103280,
+  HP: 16103280,
   DMG: 39279,
   MonsterBackground: backgroundInfern.src,
   MonsterSound: "./sounds/leoric.mp3",

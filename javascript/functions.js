@@ -291,7 +291,7 @@ function attackChoice(
     );
     playerStatus.HP -= Math.round(damageEnemy * bonusDef);
     damageEnemyAcumulate += damageEnemy;
-    playerStatus.MANA *= Math.round(bonusDefCost);
+    playerStatus.MANA = Math.round(playerStatus.MANA * bonusDefCost);
 
     if (playerStatus.HP <= 0 || playerStatus.MANA < playerStatus.manaGasta[0]) {
       ativeDesatived(twoImage);
@@ -365,11 +365,75 @@ function attackChoice(
 }
 function ativeBonus(type) {
   if (type === infoBonusAtk) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
     ativeDesatived(infoBonusAtk);
-    ativeDesatived(bonus2x);
-    ativeDesatived(bonus3x);
-    ativeDesatived(bonus5x);
-    ativeDesatived(bonus8x);
+    switch (countEnemy) {
+      case 0:
+        ativeDesatived(listBonusAtk[0]);
+        break;
+      case 1:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        break;
+      case 2:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        break;
+      case 3:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        break;
+      case 4:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        ativeDesatived(listBonusAtk[4]);
+        break;
+      case 5:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        ativeDesatived(listBonusAtk[4]);
+        ativeDesatived(listBonusAtk[5]);
+        break;
+      case 6:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        ativeDesatived(listBonusAtk[4]);
+        ativeDesatived(listBonusAtk[5]);
+        break;
+      case 7:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        ativeDesatived(listBonusAtk[4]);
+        ativeDesatived(listBonusAtk[5]);
+        break;
+      default:
+        ativeDesatived(listBonusAtk[0]);
+        ativeDesatived(listBonusAtk[1]);
+        ativeDesatived(listBonusAtk[2]);
+        ativeDesatived(listBonusAtk[3]);
+        ativeDesatived(listBonusAtk[4]);
+        ativeDesatived(listBonusAtk[5]);
+    }
   }
   if (type === infoBonusDef) {
     ativeDesatived(infoBonusDef);
@@ -385,4 +449,10 @@ function buttonNewSkil(skilSlot) {
   }</h2>Aumento de Dano: ${Math.round(
     atualPlayerStatus.acrescimoDeDano[skilSlot] * 100 - 100
   )}%<br/>Mana/Energia: ${atualPlayerStatus.manaGasta[skilSlot]}`;
+}
+function skilButtosAtives() {
+  for (let i = 0; i <= countSkil; i++) {
+    ativeDesatived(listBottonSkil[i]);
+    buttonNewSkil(i);
+  }
 }

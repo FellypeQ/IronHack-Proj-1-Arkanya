@@ -40,6 +40,10 @@ const bonus2x = document.getElementById("bonus2x");
 const bonus3x = document.getElementById("bonus3x");
 const bonus5x = document.getElementById("bonus5x");
 const bonus8x = document.getElementById("bonus8x");
+const bonus10x = document.getElementById("bonus10x");
+const bonus15x = document.getElementById("bonus15x");
+const listBonusAtk = [bonus2x, bonus3x, bonus5x, bonus8x, bonus10x, bonus15x];
+
 const infoBonusDef = document.getElementById("infoBonusDef");
 const bonus30 = document.getElementById("bonus30");
 const bonus60 = document.getElementById("bonus60");
@@ -66,6 +70,8 @@ let bonus2xAtive = 0;
 let bonus3xAtive = 0;
 let bonus5xAtive = 0;
 let bonus8xAtive = 0;
+let bonus10xAtive = 0;
+let bonus15xAtive = 0;
 let bonusDef = 1;
 let bonusDefCost = 1;
 let bonus30Ative = 0;
@@ -112,6 +118,8 @@ const ataqueFrenetico = new Audio();
 ataqueFrenetico.src = "./sounds/ataque-frenetico.wav";
 const odioDoBerserker = new Audio();
 odioDoBerserker.src = "./sounds/odio-do-berserker.wav";
+const furiaIncontrolavel = new Audio();
+furiaIncontrolavel.src = "./sounds/furia-incontrolavel.wav";
 
 const goblinSound = new Audio();
 goblinSound.src = "./sounds/goblin.wav";
@@ -150,6 +158,8 @@ const warriorImage4 = new Image();
 warriorImage4.src = "./images/barbaro-4.png";
 const warriorImage5 = new Image();
 warriorImage5.src = "./images/barbaro-5.jpg";
+const warriorImage6 = new Image();
+warriorImage6.src = "./images/barbaro-6.png";
 
 const guildImage = new Image();
 guildImage.src = "./images/Guild.png";

@@ -1,7 +1,3 @@
-window.onload = () => {
-  "onload", backgroundSound.play();
-};
-
 mageChoice.addEventListener("click", () => {
   zeraContadores();
   alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
@@ -27,11 +23,8 @@ startBattleGame.addEventListener("click", () => {
   ativeDesatived(choiceBattle);
   ativeDesatived(leftItem);
   ativeDesatived(monster);
-  //ativeDesatived(monsterStatus);
   ativeDesatived(afterAction);
-  for (let i = 0; i <= countSkil; i++) {
-    ativeDesatived(listBottonSkil[i]);
-  }
+  skilButtosAtives();
   buttonNewSkil(countSkil);
   ativeBonus(infoBonusAtk);
   currentlyEnemy = enemyList[countEnemy];
@@ -60,10 +53,6 @@ escapeClick.addEventListener("click", () => {
 });
 
 newDefensive.addEventListener("click", () => {
-  bonus2x.style.backgroundColor = "#0a1017";
-  bonus3x.style.backgroundColor = "#0a1017";
-  bonus5x.style.backgroundColor = "#0a1017";
-  bonus8x.style.backgroundColor = "#0a1017";
   atualPlayerStatus.BLOCK += 0.19;
   countArmy++;
   playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
@@ -85,16 +74,14 @@ newDefensive.addEventListener("click", () => {
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
-  for (let i = 0; i <= countSkil; i++) {
-    ativeDesatived(listBottonSkil[i]);
-    buttonNewSkil(i);
-  }
+  skilButtosAtives();
   ativeDesatived(escapeClick);
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
-  ativeBonus(infoBonusAtk);
+  buttonNewSkil(countSkil);
   countEnemy++;
+  ativeBonus(infoBonusAtk);
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
@@ -104,10 +91,6 @@ newDefensive.addEventListener("click", () => {
   backgroundSound.play();
 });
 newOfensive.addEventListener("click", () => {
-  bonus2x.style.backgroundColor = "#0a1017";
-  bonus3x.style.backgroundColor = "#0a1017";
-  bonus5x.style.backgroundColor = "#0a1017";
-  bonus8x.style.backgroundColor = "#0a1017";
   atualPlayerStatus.DMG *= Math.round(1.75);
   countArmy++;
   playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
@@ -129,16 +112,14 @@ newOfensive.addEventListener("click", () => {
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
-  for (let i = 0; i <= countSkil; i++) {
-    ativeDesatived(listBottonSkil[i]);
-    buttonNewSkil(i);
-  }
+  skilButtosAtives();
   ativeDesatived(escapeClick);
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
-  ativeBonus(infoBonusAtk);
+  buttonNewSkil(countSkil);
   countEnemy++;
+  ativeBonus(infoBonusAtk);
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
@@ -148,10 +129,6 @@ newOfensive.addEventListener("click", () => {
   backgroundSound.play();
 });
 newSkill.addEventListener("click", () => {
-  bonus2x.style.backgroundColor = "#0a1017";
-  bonus3x.style.backgroundColor = "#0a1017";
-  bonus5x.style.backgroundColor = "#0a1017";
-  bonus8x.style.backgroundColor = "#0a1017";
   countSkil++;
   damageEnemyAcumulate = 0;
   manaEnergiAcumulate = 0;
@@ -170,10 +147,7 @@ newSkill.addEventListener("click", () => {
     Mana/Energia: ${atualPlayerStatus.MANA}`
   );
   returnStatus(atualPlayerTag, atualPlayerStatus, countSkil);
-  for (let i = 0; i <= countSkil; i++) {
-    ativeDesatived(listBottonSkil[i]);
-    buttonNewSkil(i);
-  }
+  skilButtosAtives();
   ativeDesatived(congratulation);
   ativeDesatived(twoImage);
   ativeDesatived(continueBattle);
@@ -181,8 +155,9 @@ newSkill.addEventListener("click", () => {
   ativeDesatived(newDefensive);
   ativeDesatived(newOfensive);
   ativeDesatived(newSkill);
-  ativeBonus(infoBonusAtk);
+  buttonNewSkil(countSkil);
   countEnemy++;
+  ativeBonus(infoBonusAtk);
   currentlyEnemy = enemyList[countEnemy];
   currentlyEnemyTag = monsterStatus;
   returnStatus(currentlyEnemyTag, currentlyEnemy);
@@ -192,12 +167,276 @@ newSkill.addEventListener("click", () => {
   backgroundSound.play();
 });
 
+bonus2x.addEventListener("click", () => {
+  if (bonus2xAtive === 0) {
+    bonus2x.style.backgroundColor = "darkRed";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 2;
+    bonusAtkCost = 2;
+    bonus2xAtive = 1;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+bonus3x.addEventListener("click", () => {
+  if (bonus3xAtive === 0) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "darkRed";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 3;
+    bonusAtkCost = 3;
+    bonus2xAtive = 0;
+    bonus3xAtive = 1;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+bonus5x.addEventListener("click", () => {
+  if (bonus5xAtive === 0) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "darkRed";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 5;
+    bonusAtkCost = 5;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 1;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+bonus8x.addEventListener("click", () => {
+  if (bonus8xAtive === 0) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "darkRed";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 8;
+    bonusAtkCost = 8;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 1;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+bonus10x.addEventListener("click", () => {
+  if (bonus10xAtive === 0) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "darkRed";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 10;
+    bonusAtkCost = 10;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 1;
+    bonus15xAtive = 0;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+bonus15x.addEventListener("click", () => {
+  if (bonus15xAtive === 0) {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "darkRed";
+    bonusAtk = 15;
+    bonusAtkCost = 15;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 1;
+  } else {
+    bonus2x.style.backgroundColor = "#0a1017";
+    bonus3x.style.backgroundColor = "#0a1017";
+    bonus5x.style.backgroundColor = "#0a1017";
+    bonus8x.style.backgroundColor = "#0a1017";
+    bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
+    bonusAtk = 1;
+    bonusAtkCost = 1;
+    bonus2xAtive = 0;
+    bonus3xAtive = 0;
+    bonus5xAtive = 0;
+    bonus8xAtive = 0;
+    bonus10xAtive = 0;
+    bonus15xAtive = 0;
+  }
+});
+
+bonus30.addEventListener("click", () => {
+  if (bonus30Ative === 0) {
+    bonus30.style.backgroundColor = "darkRed";
+    bonus60.style.backgroundColor = "#0a1017";
+    bonus80.style.backgroundColor = "#0a1017";
+    bonusDef = 0.7; //bloqueia 30% do dano
+    bonusDefCost = 0.85; //consome 15% da mana
+    bonus30Ative = 1;
+    bonus60Ative = 0;
+    bonus80Ative = 0;
+  } else {
+    bonus30.style.backgroundColor = "#0a1017";
+    bonus60.style.backgroundColor = "#0a1017";
+    bonus80.style.backgroundColor = "#0a1017";
+    bonusDef = 1;
+    bonusDefCost = 1;
+    bonus30Ative = 0;
+    bonus60Ative = 0;
+    bonus80Ative = 0;
+  }
+});
+bonus60.addEventListener("click", () => {
+  if (bonus60Ative === 0) {
+    bonus30.style.backgroundColor = "#0a1017";
+    bonus60.style.backgroundColor = "darkRed";
+    bonus80.style.backgroundColor = "#0a1017";
+    bonusDef = 0.4; //bloqueia 60% do dano
+    bonusDefCost = 0.7; //consome 30% da mana
+    bonus30Ative = 0;
+    bonus60Ative = 1;
+    bonus80Ative = 0;
+  } else {
+    bonus30.style.backgroundColor = "#0a1017";
+    bonus60.style.backgroundColor = "#0a1017";
+    bonus80.style.backgroundColor = "#0a1017";
+    bonusDef = 1;
+    bonusDefCost = 1;
+    bonus30Ative = 0;
+    bonus60Ative = 0;
+    bonus80Ative = 0;
+  }
+});
+bonus80.addEventListener("click", () => {
+  if (bonus80Ative === 0) {
+    bonus30.style.backgroundColor = "#0a1017";
+    bonus60.style.backgroundColor = "#0a1017";
+    bonus80.style.backgroundColor = "darkRed";
+    bonusDef = 0.2; //bloqueia 80% do dano
+    bonusDefCost = 0.6; //consome 40% da mana
+    bonus30Ative = 0;
+    bonus60Ative = 0;
+    bonus80Ative = 1;
+  } else {
+    bonus30.style.backgroundColor = "#0a1017";
+    bonus60.style.backgroundColor = "#0a1017";
+    bonus80.style.backgroundColor = "#0a1017";
+    bonusDef = 1;
+    bonusDefCost = 1;
+    bonus30Ative = 0;
+    bonus60Ative = 0;
+    bonus80Ative = 0;
+  }
+});
+
 attack.addEventListener("click", () => {
   currentlyEnemy.MonsterAtkSound.play();
   bonus2x.style.backgroundColor = "#0a1017";
   bonus3x.style.backgroundColor = "#0a1017";
   bonus5x.style.backgroundColor = "#0a1017";
   bonus8x.style.backgroundColor = "#0a1017";
+  bonus10x.style.backgroundColor = "#0a1017";
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -278,167 +517,6 @@ skil5.addEventListener("click", () => {
   );
 });
 
-bonus2x.addEventListener("click", () => {
-  if (bonus2xAtive === 0) {
-    bonus2x.style.backgroundColor = "darkRed";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 2;
-    bonusAtkCost = 2;
-    bonus2xAtive = 1;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  } else {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 1;
-    bonusAtkCost = 1;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  }
-});
-bonus3x.addEventListener("click", () => {
-  if (bonus3xAtive === 0) {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "darkRed";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 3;
-    bonusAtkCost = 3;
-    bonus2xAtive = 0;
-    bonus3xAtive = 1;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  } else {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 1;
-    bonusAtkCost = 1;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  }
-});
-bonus5x.addEventListener("click", () => {
-  if (bonus5xAtive === 0) {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "darkRed";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 5;
-    bonusAtkCost = 5;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 1;
-    bonus8xAtive = 0;
-  } else {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 1;
-    bonusAtkCost = 1;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  }
-});
-bonus8x.addEventListener("click", () => {
-  if (bonus8xAtive === 0) {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "darkRed";
-    bonusAtk = 8;
-    bonusAtkCost = 8;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 1;
-  } else {
-    bonus2x.style.backgroundColor = "#0a1017";
-    bonus3x.style.backgroundColor = "#0a1017";
-    bonus5x.style.backgroundColor = "#0a1017";
-    bonus8x.style.backgroundColor = "#0a1017";
-    bonusAtk = 1;
-    bonusAtkCost = 1;
-    bonus2xAtive = 0;
-    bonus3xAtive = 0;
-    bonus5xAtive = 0;
-    bonus8xAtive = 0;
-  }
-});
-
-bonus30.addEventListener("click", () => {
-  if (bonus30Ative === 0) {
-    bonus30.style.backgroundColor = "darkRed";
-    bonus60.style.backgroundColor = "#0a1017";
-    bonus80.style.backgroundColor = "#0a1017";
-    bonusDef = 0.7; //bloqueia 30% do dano
-    bonusDefCost = 0.85; //consome 15% da mana
-    bonus30Ative = 1;
-    bonus60Ative = 0;
-    bonus80Ative = 0;
-  } else {
-    bonus30.style.backgroundColor = "#0a1017";
-    bonus60.style.backgroundColor = "#0a1017";
-    bonus80.style.backgroundColor = "#0a1017";
-    bonusDef = 1;
-    bonusDefCost = 1;
-    bonus30Ative = 0;
-    bonus60Ative = 0;
-    bonus80Ative = 0;
-  }
-});
-bonus60.addEventListener("click", () => {
-  if (bonus60Ative === 0) {
-    bonus30.style.backgroundColor = "#0a1017";
-    bonus60.style.backgroundColor = "darkRed";
-    bonus80.style.backgroundColor = "#0a1017";
-    bonusDef = 0.4; //bloqueia 60% do dano
-    bonusDefCost = 0.7; //consome 30% da mana
-    bonus30Ative = 0;
-    bonus60Ative = 1;
-    bonus80Ative = 0;
-  } else {
-    bonus30.style.backgroundColor = "#0a1017";
-    bonus60.style.backgroundColor = "#0a1017";
-    bonus80.style.backgroundColor = "#0a1017";
-    bonusDef = 1;
-    bonusDefCost = 1;
-    bonus30Ative = 0;
-    bonus60Ative = 0;
-    bonus80Ative = 0;
-  }
-});
-bonus80.addEventListener("click", () => {
-  if (bonus80Ative === 0) {
-    bonus30.style.backgroundColor = "#0a1017";
-    bonus60.style.backgroundColor = "#0a1017";
-    bonus80.style.backgroundColor = "darkRed";
-    bonusDef = 0.2; //bloqueia 80% do dano
-    bonusDefCost = 0.6; //consome 40% da mana
-    bonus30Ative = 0;
-    bonus60Ative = 0;
-    bonus80Ative = 1;
-  } else {
-    bonus30.style.backgroundColor = "#0a1017";
-    bonus60.style.backgroundColor = "#0a1017";
-    bonus80.style.backgroundColor = "#0a1017";
-    bonusDef = 1;
-    bonusDefCost = 1;
-    bonus30Ative = 0;
-    bonus60Ative = 0;
-    bonus80Ative = 0;
-  }
-});
+window.onload = () => {
+  backgroundSound.play();
+};
