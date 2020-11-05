@@ -14,7 +14,7 @@
   justify-content: space-evenly;
   flex-direction: column;
 }
-/**/
+/*Tela inicial do jogo*/
 .apresentation {
   margin: 0.5% 0.5% 7% 0.5%;
   height: 470px;
@@ -118,7 +118,7 @@
   opacity: 0.7;
   font-size: 150%;
   height: auto;
-  padding-right: 15%;
+  padding-right: 5%;
 }
 .rightItem {
   flex-direction: column;

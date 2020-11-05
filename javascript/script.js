@@ -1,17 +1,27 @@
 mageChoice.addEventListener("click", () => {
   zeraContadores();
   alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
-  goodChoice.innerHTML = `A <i>Maga</i> é um ótima escolha!`;
+  goodChoice.innerHTML = `A <i>Maga</i> tem um alto dano a longa distância com baixissima defesa`;
   returnStatus(playerSkil, mageCaracteristcs, countSkil);
   atualPlayerTag = playerSkil;
   atualPlayerStatus = mageCaracteristcs;
   playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
   backgroundSound.play();
 });
+archerChoice.addEventListener("click", () => {
+  zeraContadores();
+  alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
+  goodChoice.innerHTML = `A <i>Arqueira</i> ataca a distância, tem o ataque alto em deficiência da defesa`;
+  returnStatus(playerSkil, archerCaracteristcs, countSkil);
+  atualPlayerTag = playerSkil;
+  atualPlayerStatus = archerCaracteristcs;
+  playerImage.src = atualPlayerStatus.PlayerImage[countArmy];
+  backgroundSound.play();
+});
 warriorChoice.addEventListener("click", () => {
   zeraContadores();
   alterDisplayInitical(twoImage, beginBattle, oneImage, choiceOne);
-  goodChoice.innerHTML = `O <i>Guerreiro</i> é um ótima escolha!`;
+  goodChoice.innerHTML = `O <i>Guerreiro</i> tem a melhor defesa do jogo, porém o ataque é baixo`;
   returnStatus(playerSkil, warriorCaracteristcs, countSkil);
   atualPlayerTag = playerSkil;
   atualPlayerStatus = warriorCaracteristcs;
@@ -34,6 +44,12 @@ startBattleGame.addEventListener("click", () => {
   background.style.backgroundImage = `url(${currentlyEnemy.MonsterBackground})`;
   monsterImage.src = currentlyEnemy.MonsterImage;
   backgroundSound.play();
+});
+backToChoice.addEventListener("click", () => {
+  ativeDesatived(oneImage);
+  ativeDesatived(choiceOne);
+  ativeDesatived(twoImage);
+  ativeDesatived(beginBattle);
 });
 escapeClick.addEventListener("click", () => {
   for (let i = 0; i <= countSkil; i++) {
@@ -448,9 +464,13 @@ attack.addEventListener("click", () => {
 
 skil1.addEventListener("click", () => {
   atualPlayerStatus.SkilSound[0].play();
+  atualPlayerStatus.SkilSound[0].volume = 0.5;
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -462,9 +482,13 @@ skil1.addEventListener("click", () => {
 });
 skil2.addEventListener("click", () => {
   atualPlayerStatus.SkilSound[1].play();
+  atualPlayerStatus.SkilSound[1].volume = 0.5;
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -476,9 +500,13 @@ skil2.addEventListener("click", () => {
 });
 skil3.addEventListener("click", () => {
   atualPlayerStatus.SkilSound[2].play();
+  atualPlayerStatus.SkilSound[2].volume = 0.5;
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -490,9 +518,13 @@ skil3.addEventListener("click", () => {
 });
 skil4.addEventListener("click", () => {
   atualPlayerStatus.SkilSound[3].play();
+  atualPlayerStatus.SkilSound[3].volume = 0.5;
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -504,9 +536,13 @@ skil4.addEventListener("click", () => {
 });
 skil5.addEventListener("click", () => {
   atualPlayerStatus.SkilSound[4].play();
+  atualPlayerStatus.SkilSound[4].volume = 0.5;
   bonus30.style.backgroundColor = "#0a1017";
   bonus60.style.backgroundColor = "#0a1017";
   bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
   attackChoice(
     atualPlayerStatus,
     atualPlayerTag,
@@ -516,15 +552,33 @@ skil5.addEventListener("click", () => {
     4
   );
 });
+skil6.addEventListener("click", () => {
+  atualPlayerStatus.SkilSound[5].play();
+  atualPlayerStatus.SkilSound[5].volume = 0.5;
+  bonus30.style.backgroundColor = "#0a1017";
+  bonus60.style.backgroundColor = "#0a1017";
+  bonus80.style.backgroundColor = "#0a1017";
+  bonus30Ative = 0;
+  bonus60Ative = 0;
+  bonus80Ative = 0;
+  attackChoice(
+    atualPlayerStatus,
+    atualPlayerTag,
+    currentlyEnemyTag,
+    currentlyEnemy,
+    "ataque",
+    5
+  );
+});
 
 window.onload = () => {
   startGame.addEventListener("click", () => {
     backgroundSound.play();
     background.style.backgroundImage = `url(${guildImage.src})`;
-    ativeDesatived(apresentation)
+    ativeDesatived(apresentation);
     ativeDesatived(telaInicial);
     ativeDesatived(startGame);
     ativeDesatived(oneImage);
-    ativeDesatived(choice1);
+    ativeDesatived(choiceOne);
   });
 };

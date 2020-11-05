@@ -30,6 +30,38 @@ let mageCaracteristcs = {
     mageImage6.src,
   ],
 };
+let archerCaracteristcs = {
+  HP: 365,
+  BLOCK: 0,
+  DMG: 375,
+  MANA: 171,
+  SKIL: [
+    "Flecha perfurante",
+    "Flecha Dupla",
+    "Flecha explosiva",
+    "Chuva de Flecha",
+    "Mão de Sargitário",
+    "Tiro Élfico",
+  ],
+  SkilSound: [
+    flechaPerfurante,
+    flechaDupla,
+    flechaExplosiva,
+    chuvaDeFlecha,
+    maoDeSargitario,
+    tiroElfico,
+  ],
+  acrescimoDeDano: [1.22, 3.1, 6.9, 9.2, 13.5, 25.8],
+  manaGasta: [15, 28, 106, 243, 1044, 2568],
+  PlayerImage: [
+    archerImage1.src,
+    archerImage2.src,
+    archerImage3.src,
+    archerImage4.src,
+    archerImage5.src,
+    archerImage6.src,
+  ],
+};
 let warriorCaracteristcs = {
   HP: 610,
   BLOCK: 0,
@@ -62,24 +94,7 @@ let warriorCaracteristcs = {
     warriorImage6.src,
   ],
 };
-/*
-let archerCaracteristcs = {
-  HP: 365,
-  BLOCK: 0,
-  DMG: 375,
-  MANA: 171,
-  SKIL: ["", "", "", "", "", ""],
-  SkilSound: [, , , , , ,],
-  acrescimoDeDano: [, , , , ,],
-  manaGasta: [, , , , ,],
 
-  acrescimoDeDano: [1.3, 3.98, 8.1, 11.4, 14.7, 28.2],
-  manaGasta: [35, 93, 383, 1263, 4167, 11250],
-  acrescimoDeDano: [1.15, 2.7, 5.2, 8.9, 12.6, 22.9],
-  manaGasta: [6, 9, 22, 81, 299, 615],
-  PlayerImage: [src, src, src, src, src, src],
-};
-*/
 const playerList = [mageCaracteristcs, warriorCaracteristcs];
 
 let goblinCaracteristcs = {

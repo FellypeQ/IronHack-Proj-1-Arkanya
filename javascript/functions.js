@@ -370,11 +370,13 @@ function ativeBonus(type) {
     bonus5x.style.backgroundColor = "#0a1017";
     bonus8x.style.backgroundColor = "#0a1017";
     bonus10x.style.backgroundColor = "#0a1017";
+    bonus15x.style.backgroundColor = "#0a1017";
     bonus2xAtive = 0;
     bonus3xAtive = 0;
     bonus5xAtive = 0;
     bonus8xAtive = 0;
     bonus10xAtive = 0;
+    bonus15xAtive = 0;
     ativeDesatived(infoBonusAtk);
     switch (countEnemy) {
       case 0:

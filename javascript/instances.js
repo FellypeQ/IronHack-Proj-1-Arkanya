@@ -11,6 +11,7 @@ const gameEnd = document.getElementById("gameEnd");
 const oneImage = document.getElementById("oneImage");
 const choiceOne = document.getElementById("choice1");
 const mageChoice = document.getElementById("mage");
+const archerChoice = document.getElementById("archer");
 const warriorChoice = document.getElementById("warrior");
 
 const twoImage = document.getElementById("twoImages");
@@ -21,6 +22,7 @@ let playerImage = document.getElementById("playerImage");
 const leftItem = document.getElementById("leftItem");
 const beginBattle = document.getElementById("beginBattle");
 const startBattleGame = document.getElementById("startBattleGame");
+const backToChoice = document.getElementById("backToChoice");
 const monster = document.getElementById("monster");
 const monsterStatus = document.getElementById("monsterStatus");
 let monsterImage = document.getElementById("monsterImage");
@@ -36,7 +38,8 @@ const skil2 = document.getElementById("skil2");
 const skil3 = document.getElementById("skil3");
 const skil4 = document.getElementById("skil4");
 const skil5 = document.getElementById("skil5");
-const listBottonSkil = [skil1, skil2, skil3, skil4, skil5];
+const skil6 = document.getElementById("skil6");
+const listBottonSkil = [skil1, skil2, skil3, skil4, skil5, skil6];
 
 const bonusButton = document.getElementById("bonusButton");
 const infoBonusAtk = document.getElementById("infoBonusAtk");
@@ -95,7 +98,7 @@ let countArmy = 0;
 /*Instância todos os sons utilizados*/
 const backgroundSound = new Audio();
 backgroundSound.src = "./sounds/tristram.mp3";
-backgroundSound.volume = 0.05;
+backgroundSound.volume = 0.15;
 const quitSound = new Audio();
 quitSound.src = "./sounds/angry-ghost.wav";
 
@@ -111,6 +114,19 @@ const meteoroSound = new Audio();
 meteoroSound.src = "./sounds/meteoro.wav";
 const mundoEmChamas = new Audio();
 mundoEmChamas.src = "./sounds/mundo-em-chamas.mp3";
+
+const flechaPerfurante = new Audio();
+flechaPerfurante.src = "../sounds/flecha-perfurante.wav";
+const flechaDupla = new Audio();
+flechaDupla.src = "../sounds/flecha-dupla.wav";
+const flechaExplosiva = new Audio();
+flechaExplosiva.src = "../sounds/flecha-explosiva.mp3";
+const chuvaDeFlecha = new Audio();
+chuvaDeFlecha.src = "../sounds/chuva-de-flecha.wav";
+const maoDeSargitario = new Audio();
+maoDeSargitario.src = "../sounds/mao-de-sargitario.mp3";
+const tiroElfico = new Audio();
+tiroElfico.src = "../sounds/tiro-elfico.wav";
 
 const corteDiagonalSound = new Audio();
 corteDiagonalSound.src = "./sounds/corte-diagonal.mp3";
@@ -164,6 +180,19 @@ const warriorImage5 = new Image();
 warriorImage5.src = "./images/barbaro-5.jpg";
 const warriorImage6 = new Image();
 warriorImage6.src = "./images/barbaro-6.png";
+
+const archerImage1 = new Image();
+archerImage1.src = "./images/arqueira-1.jpg";
+const archerImage2 = new Image();
+archerImage2.src = "./images/arqueira-2.jpg";
+const archerImage3 = new Image();
+archerImage3.src = "./images/arqueira-3.jpg";
+const archerImage4 = new Image();
+archerImage4.src = "./images/arqueira-4.jpg";
+const archerImage5 = new Image();
+archerImage5.src = "./images/arqueira-5.png";
+const archerImage6 = new Image();
+archerImage6.src = "./images/arqueira-6.jpg";
 
 const guildImage = new Image();
 guildImage.src = "./images/Guild.png";
