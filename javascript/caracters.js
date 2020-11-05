@@ -2,7 +2,7 @@ let mageCaracteristcs = {
   HP: 120,
   BLOCK: 0,
   DMG: 320,
-  MANA: 300,
+  MANA: 460,
   SKIL: [
     "Bola de Fogo",
     "Labareda",
