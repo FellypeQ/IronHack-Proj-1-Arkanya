@@ -2,13 +2,14 @@ let mageCaracteristcs = {
   HP: 120,
   BLOCK: 0,
   DMG: 320,
-  MANA: 210,
+  MANA: 300,
   SKIL: [
     "Bola de Fogo",
     "Labareda",
     "Raio Infernal",
     "Tempestade de Fogo",
     "Meteoro",
+    "Mundo em Chamas",
   ],
   SkilSound: [
     bolaDeFogo,
@@ -16,15 +17,17 @@ let mageCaracteristcs = {
     raioInfernalSound,
     tempestadeDeFogo,
     meteoroSound,
+    mundoEmChamas,
   ],
-  acrescimoDeDano: [1.3, 3.98, 8.1, 11.4, 14.7],
-  manaGasta: [35, 93, 383, 1263, 4167],
+  acrescimoDeDano: [1.3, 3.98, 8.1, 11.4, 14.7, 28.2],
+  manaGasta: [35, 93, 383, 1263, 4167, 11250],
   PlayerImage: [
     mageImage1.src,
     mageImage2.src,
     mageImage3.src,
     mageImage4.src,
     mageImage5.src,
+    mageImage6.src,
   ],
 };
 let warriorCaracteristcs = {
@@ -95,7 +98,7 @@ let salamandrefCaracteristcs = {
   MonsterImage: salamandre.src,
   MonsterAtkSound: salamandraDeserticaSound,
 };
-let spiderQueen = {
+let spiderQueenCaracteristcs = {
   Name: "Rainha Aranha",
   HP: 4381936,
   DMG: 10911,
@@ -106,8 +109,8 @@ let spiderQueen = {
 };
 let demonLordCaracteristcs = {
   Name: "Lorde Demônio",
-  HP: 4381936,
-  DMG: 10911,
+  HP: 460103280,
+  DMG: 39279,
   MonsterBackground: backgroundInfern.src,
   MonsterSound: "./sounds/leoric.mp3",
   MonsterImage: demonLord.src,
@@ -119,6 +122,7 @@ const enemyList = [
   minotaurCaracteristcs,
   iceWolfCaracteristcs,
   salamandrefCaracteristcs,
+  spiderQueenCaracteristcs,
   demonLordCaracteristcs,
 ];
 

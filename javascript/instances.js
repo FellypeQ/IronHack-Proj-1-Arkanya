@@ -99,6 +99,8 @@ const tempestadeDeFogo = new Audio();
 tempestadeDeFogo.src = "./sounds/tempestade-de-fogo.wav";
 const meteoroSound = new Audio();
 meteoroSound.src = "./sounds/meteoro.wav";
+const mundoEmChamas = new Audio();
+mundoEmChamas.src = "./sounds/mundo-em-chamas.mp3";
 
 const corteDiagonalSound = new Audio();
 corteDiagonalSound.src = "./sounds/corte-diagonal.mp3";
@@ -135,6 +137,8 @@ const mageImage4 = new Image();
 mageImage4.src = "./images/maga-4.jpg";
 const mageImage5 = new Image();
 mageImage5.src = "./images/maga-5.jpg";
+const mageImage6 = new Image();
+mageImage6.src = "./images/maga-6.jpg";
 
 const warriorImage1 = new Image();
 warriorImage1.src = "./images/barbaro-1.jpg";
