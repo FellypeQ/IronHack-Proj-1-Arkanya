@@ -16,24 +16,40 @@
 }
 /**/
 .apresentation {
-  margin: 0.5% 0;
+  margin: 0.5% 0.5% 7% 0.5%;
   height: 470px;
+  width: 65%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.apresentation h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.apresentation > h1 {
+  background-color: #9ca288;
+  opacity: 0.8;
+  margin: 25% 0 10% 0;
+  font-size: 350%;
+  text-align: center;
+}
+.apresentation > h2 {
   background-color: #9ca288;
   opacity: 0.7;
+  font-size: 170%;
+  width: 65%;
+  text-align: center;
+}
+.apresentation > h3 {
+  background-color: #9ca288;
+  width: 100vw;
+  opacity: 0.9;
+  font-size: 150%;
+  margin: 15% 0 5% 0;
+  text-align: center;
+  opacity: 0.9;
 }
 .telaInicial button {
   background-color: #9ca288;
   color: black;
+  opacity: 0.8;
 }
 /*tela de escolha de personagem, div padrão de 1 imagem*/
 .oneImage {

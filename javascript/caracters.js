@@ -1,7 +1,7 @@
 let mageCaracteristcs = {
   HP: 120,
   BLOCK: 0,
-  DMG: 340,
+  DMG: 430,
   MANA: 460,
   SKIL: [
     "Bola de Fogo",
@@ -31,9 +31,9 @@ let mageCaracteristcs = {
   ],
 };
 let warriorCaracteristcs = {
-  HP: 410,
+  HP: 610,
   BLOCK: 0,
-  DMG: 230,
+  DMG: 320,
   MANA: 55,
   SKIL: [
     "Corte Diagonal",
@@ -62,7 +62,24 @@ let warriorCaracteristcs = {
     warriorImage6.src,
   ],
 };
+/*
+let archerCaracteristcs = {
+  HP: 365,
+  BLOCK: 0,
+  DMG: 375,
+  MANA: 171,
+  SKIL: ["", "", "", "", "", ""],
+  SkilSound: [, , , , , ,],
+  acrescimoDeDano: [, , , , ,],
+  manaGasta: [, , , , ,],
 
+  acrescimoDeDano: [1.3, 3.98, 8.1, 11.4, 14.7, 28.2],
+  manaGasta: [35, 93, 383, 1263, 4167, 11250],
+  acrescimoDeDano: [1.15, 2.7, 5.2, 8.9, 12.6, 22.9],
+  manaGasta: [6, 9, 22, 81, 299, 615],
+  PlayerImage: [src, src, src, src, src, src],
+};
+*/
 const playerList = [mageCaracteristcs, warriorCaracteristcs];
 
 let goblinCaracteristcs = {
