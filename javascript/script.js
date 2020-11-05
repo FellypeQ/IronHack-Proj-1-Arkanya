@@ -518,5 +518,13 @@ skil5.addEventListener("click", () => {
 });
 
 window.onload = () => {
-  backgroundSound.play();
+  startGame.addEventListener("click", () => {
+    backgroundSound.play();
+    background.style.backgroundImage = `url(${guildImage.src})`;
+    ativeDesatived(apresentation)
+    ativeDesatived(telaInicial);
+    ativeDesatived(startGame);
+    ativeDesatived(oneImage);
+    ativeDesatived(choice1);
+  });
 };

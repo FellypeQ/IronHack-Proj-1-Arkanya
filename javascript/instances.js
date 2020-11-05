@@ -1,3 +1,7 @@
+const apresentation = document.getElementById("apresentation");
+const telaInicial = document.getElementById("telaInicial");
+const startGame = document.getElementById("startGame");
+
 const background = document.getElementById("principal");
 const gameOver = document.getElementById("gameOver");
 const tryAgain = document.getElementById("tryAgain");

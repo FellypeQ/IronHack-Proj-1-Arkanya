@@ -8,7 +8,11 @@
   </head>
   <body id="principal" class="principal">
     <!--Telas-->
-    <div id="oneImage" class="oneImage ative">
+    <div id="apresentation" class="apresentation ative">
+      <h1>Bem vindo a cidade de Arkanya!</h1>
+      <h2>Esta é a maior cidade do continente</h2>
+    </div>
+    <div id="oneImage" class="oneImage desatived">
       <img src="./images/firstApresentation.png" alt="" />
       <h1 class="afterAction">
         Jogue em tela cheia(F11) para uma melhor experiência
@@ -41,9 +45,12 @@
       <img src="./images/gameWin.png" alt="" />
     </div>
     <!--Botões-->
-    <div id="choice1" class="choice1 ative">
-      <button class="classButton" id="mage">MAGO</button>
-      <button class="classButton" id="warrior">GUERREIRO</button>
+    <div id="telaInicial" class="telaInicial ative">
+      <button class="classButton ative" id="startGame">Ir para Guilda</button>
+    </div>
+    <div id="choice1" class="choice1 desatived">
+      <button class="classButton ative" id="mage">Maga</button>
+      <button class="classButton ative" id="warrior">Guerreiro</button>
     </div>
     <div id="beginBattle" class="beginBattle desatived">
       <button id="startBattleGame" class="classButton">
@@ -82,6 +89,9 @@
             Canção dracônica<br />Dano 8x<br />Mana 8x
           </button>
           <button id="bonus10x" class="desatived">
+            Convocação Divina<br />Dano 10x<br />Mana 10x
+          </button>
+          <button id="bonus15x" class="desatived">
             Convocação Divina<br />Dano 10x<br />Mana 10x
           </button>
 

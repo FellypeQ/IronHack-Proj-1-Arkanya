@@ -5,7 +5,7 @@
 }
 
 .principal {
-  background-image: url(./images/Guild.png);
+  background-image: url(./images/cidade.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,6 +13,27 @@
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+}
+/**/
+.apresentation {
+  margin: 0.5% 0;
+  height: 470px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.apresentation h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: #9ca288;
+  opacity: 0.7;
+}
+.telaInicial button {
+  background-color: #9ca288;
+  color: black;
 }
 /*tela de escolha de personagem, div padrão de 1 imagem*/
 .oneImage {
@@ -86,7 +107,7 @@
 .rightItem {
   flex-direction: column;
 }
-.rightItem img{
+.rightItem img {
   height: 400px;
   width: auto;
 }
@@ -111,9 +132,9 @@
   overflow-wrap: break-word;
   padding: 1% 0px;
 }
-.beginBattle a{
+.beginBattle a {
   background-color: #0a1017;
-  height: auto;  
+  height: auto;
   padding: 0.5% 0px;
   align-items: center;
   justify-content: center;
@@ -122,7 +143,7 @@
 .enemy {
   flex-direction: column;
 }
-.enemy img{
+.enemy img {
   height: 480px;
 }
 .enemy ul {
@@ -158,7 +179,7 @@
   margin: 0.3%;
   width: auto;
   height: auto;
-  justify-content: center;  
+  justify-content: center;
   flex-wrap: wrap;
 }
 .skilButton {
@@ -218,7 +239,7 @@
   background-color: #0a1017;
   opacity: 0.7;
   border: none;
-  font-size:150%;
+  font-size: 150%;
   font-weight: bold;
   color: white;
   margin: 0.5%;
