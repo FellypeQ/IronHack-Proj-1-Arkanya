@@ -116,17 +116,17 @@ const mundoEmChamas = new Audio();
 mundoEmChamas.src = "./sounds/mundo-em-chamas.mp3";
 
 const flechaPerfurante = new Audio();
-flechaPerfurante.src = "../sounds/flecha-perfurante.wav";
+flechaPerfurante.src = "./sounds/flecha-perfurante.wav";
 const flechaDupla = new Audio();
-flechaDupla.src = "../sounds/flecha-dupla.wav";
+flechaDupla.src = "./sounds/flecha-dupla.wav";
 const flechaExplosiva = new Audio();
-flechaExplosiva.src = "../sounds/flecha-explosiva.mp3";
+flechaExplosiva.src = "./sounds/flecha-explosiva.mp3";
 const chuvaDeFlecha = new Audio();
-chuvaDeFlecha.src = "../sounds/chuva-de-flecha.wav";
+chuvaDeFlecha.src = "./sounds/chuva-de-flecha.wav";
 const maoDeSargitario = new Audio();
-maoDeSargitario.src = "../sounds/mao-de-sargitario.mp3";
+maoDeSargitario.src = "./sounds/mao-de-sargitario.mp3";
 const tiroElfico = new Audio();
-tiroElfico.src = "../sounds/tiro-elfico.wav";
+tiroElfico.src = "./sounds/tiro-elfico.wav";
 
 const corteDiagonalSound = new Audio();
 corteDiagonalSound.src = "./sounds/corte-diagonal.mp3";
